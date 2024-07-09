@@ -1,0 +1,99 @@
+.servicios-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.servicios-contenedor {
+    margin-top: 20px; /* Espacio superior */
+    width: 100%;
+}
+
+.email-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrado horizontal */
+    gap: 10px; /* Espacio entre el ícono y el texto */
+    margin-bottom: 20px; /* Espacio inferior */
+}
+
+.email-container i {
+    font-size: 30px; /* Tamaño del ícono de correo */
+    color: #ffffff;
+}
+
+.email-container a {
+    font-size: 28px; /* Tamaño del texto del correo */
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.social-icons-contact {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Cambio a columna */
+    align-items: center; /* Centrado horizontal */
+    gap: 20px; /* Espacio entre iconos */
+}
+
+.social-icons-contact li {
+    margin-top: 5px; /* Espacio entre íconos */
+}
+
+.social-icons-contact a {
+    font-size: 30px; /* Tamaño de fuente para íconos */
+    color: #333;
+    text-decoration: none;
+}
+
+.social-icons-contact a:hover {
+    text-decoration: underline;
+}
+
+.social-icons-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.social-icons-contact li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.social-icons-contact a {
+  font-size: 24px;
+  display: block;
+  text-align: center;
+  width: 40px; /* Ajusta el ancho según sea necesario */
+  height: 40px; /* Ajusta la altura según sea necesario */
+  line-height: 40px; /* Alinea verticalmente el ícono y el texto */
+  border-radius: 50%;
+  color: #ffffff; /* Color blanco para todos los íconos */
+  transition: background-color 0.3s ease-in-out;
+}
+
+.social-icons-contact a:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Cambia el color de fondo al pasar el mouse */
+}
+
+/* Estilos específicos para cada red social */
+.social-icons-contact a[href*="instagram"] {
+  background-color: #e4405f; /* Color corporativo de Instagram */
+}
+
+.social-icons-contact a[href*="twitter"] {
+  background-color: #1da1f2; /* Color corporativo de Twitter */
+}
+
+.social-icons-contact a[href*="facebook"] {
+  background-color: #3b5998; /* Color corporativo de Facebook */
+}
+
+.social-icons-contact a[href*="vimeo"] {
+  background-color: #1ab7ea; /* Color corporativo de Vimeo */
+}

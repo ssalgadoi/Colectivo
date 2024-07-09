@@ -1,0 +1,58 @@
+/* Aplicar estilos globales solo dentro de .container-contact */
+.container-contact * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container-contact {
+  background-color: #000000; /* Cambia este color al que prefieras */
+  margin-bottom: 40px;
+  max-width: 100%; /* Ancho máximo del contenedor */
+  margin: 0 auto; /* Centrado horizontal */
+  padding: 20px; /* Espacio interno */
+}
+
+.contenedor-flex {
+display: flex; /* Utiliza flexbox */
+justify-content: space-between; /* Distribuye los elementos uniformemente */
+}
+
+.contacto-formulario {
+flex: 1; /* Ocupa dos veces más espacio que servicios-contact */
+margin-right: 10px; /* Espacio entre los elementos */
+padding: 20px; /* Espacio interno */
+background-color: #000000; /* Color de fondo */
+box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+margin-bottom: 80px;
+}
+
+.servicios-contact {
+flex: 1; /* Ocupa menos espacio */
+padding: 20px; /* Espacio interno */
+background-color: #000000; /* Color de fondo */
+box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+.contenedor-flex {
+  flex-direction: column; /* Apila los elementos en columna */
+}
+
+.contacto-formulario, .servicios-contact {
+  margin-right: 0; /* Elimina el margen derecho */
+  margin-bottom: 20px; /* Añade un margen inferior para separar los elementos */
+}
+}
+
+/* Contacto Inicio */
+.container-form {
+    background-color: black;
+    color: rgb(255, 255, 255); /* Cambia el color del texto si es necesario */
+    padding: 20px; /* Ajusta el padding según sea necesario */
+    margin-top: 50px; /* Empuja al final de la página */
+    width: 100%;
+    
+}
+

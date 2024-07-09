@@ -1,0 +1,35 @@
+
+{% extends 'base/index.html' %}
+
+{% load static %}
+{% load i18n %}
+
+
+
+{% block title %}
+  {% trans 'Fotografías' %}
+{% endblock %}
+
+{% block content %}
+<main class="container">
+  <h1 class="about-name">{% trans 'Fotografías' %}</h1>
+  <section class="post-list-fotografias">
+    <div class="category-content-fotografias">
+      {% for post in posts %}
+      <article class="post-fotografias">
+        <a href="{% url 'fotografia' post.id %}" class="post-link"> <!-- Enlace que envuelve todo el artículo -->
+          <div class="post-header-fotografias">
+            <img class="post-img-fotografias" src="{{ post.image.url }}" alt="{{ post.title|safe }}">
+            <div class="post-title-overlay">
+              <h2>{{ post.title }}</h2>
+            </div>
+          </div>
+        </a>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+</main>
+
+
+{% endblock %}

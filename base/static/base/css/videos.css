@@ -1,0 +1,109 @@
+.post-list-videos {
+    display: flex;
+    min-height: 10vh;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 15px 40px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.category-content-videos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+    max-width: 3000px;
+    margin: auto;
+}
+
+.post-videos {
+    box-shadow: 0 1px 6px 1px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: 0.2s;
+    position: relative; 
+}
+
+.post-videos:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 1px 14px 2px rgba(0, 0, 0, 0.15);
+}
+
+.post-header-videos {
+    width: 100%;
+    height: 100%; /* Asegura que el contenedor de la imagen ocupe toda la altura disponible */
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+
+.post-img-videos {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.2s ease-in-out;
+}
+
+.post-videos:hover .post-img-videos {
+    transform: scale(1.1);
+}
+
+.post-title-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7); /* Fondo negro con transparencia */
+    color: white; /* Color del texto */
+    padding: 10px;
+    text-align: center;
+    opacity: 0; /* Inicia invisible */
+    transition: opacity 0.2s ease-in-out;
+}
+
+.post-videos:hover .post-title-overlay {
+    opacity: 1; /* Muestra el título al hacer hover */
+}
+
+.post-body-videos {
+    display: none; /* Ocultamos el post-body-videos ya que el título se muestra en la superposición */
+}
+
+@media (max-width: 1145px) {
+    .category-content-videos {
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 40px;
+        max-width: 800px;
+        margin: auto;
+    }
+}
+
+
+
+
+
+/* 
+Perdido */
+
+
+
+
+/* Title Styling */
+h1 {
+  font-size: 2.5rem;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+/* .post-date {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 5px;
+  text-align: center;
+}  */
+
+
+
+
+

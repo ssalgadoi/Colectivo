@@ -1,0 +1,165 @@
+
+
+
+.container-project {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto 3rem; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem; 
+    margin-top: 100px;
+}  
+
+
+.project-image {
+    width: 45%; 
+    flex-shrink: 0; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+} 
+
+.project-img {
+    width: 100%;
+    height: auto; 
+    overflow: hidden;
+    margin-bottom: 1.56rem; 
+}
+
+.project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  
+    transition: all 600ms;
+}
+
+.project-img:hover img {
+    transform: scale(1.2);
+} 
+
+
+
+
+/* Ajustar el espacio inferior del título */
+.project-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 20px; 
+} 
+
+
+/* Añadir margen inferior para espacio entre texto y botón */
+.project-text {
+    /* margin-bottom: 1.56rem;  */
+    font-size: 15px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+} 
+
+.project-content {
+    width: 100%; 
+    max-width: 100%;
+    text-align: left; 
+} 
+
+
+@media screen and (max-width: 768px) {
+    .container-project {
+        flex-direction: column;
+        align-items: center;
+    } 
+
+    .project-image,
+    .project-content {
+        width: 100%; 
+        max-width: 100%;
+        text-align: center; 
+    } 
+} 
+    /* Ajuste de margen inferior en pantallas más pequeñas */
+    /* .project-img {
+        margin-bottom: 1.5rem; 
+    }
+} */
+
+
+/* Proyectos */
+
+
+/* Espacio entre las tarjetas */
+.grid-projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px; 
+    width: 100%;
+    padding: 20px;
+    /* box-sizing: border-box; */
+}
+
+.card-project {
+    width: 100%;
+    height: 0;
+    padding-bottom: 66.67%; /* Aspect ratio 3:2 */
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-image: var(--i);
+    overflow: hidden;
+}
+
+.content-project {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.card-project:hover .content-project {
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 1;
+}
+
+.content-project h2, .content-project a {
+    color: white;
+}
+
+.project-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px; 
+    width: 100%;
+    text-decoration: none;
+} 
+
+.project-button {
+    font-weight: 500;
+    font-size: 1.125rem;
+    border: 2px solid black;
+    color: black;
+    padding: 0.75rem 2.125rem;
+    transition: background 600ms, color 600ms;
+    margin-top: 20px;
+    text-decoration: none;
+    
+}
+
+.project-button:hover {
+    background-color: black;
+    color: rgb(255, 255, 255);
+}
+
+.title-name {
+    color: white;
+}
+
+

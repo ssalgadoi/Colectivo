@@ -1,0 +1,42 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}{% trans 'Categorías' %}{% endblock %}
+
+{% block content %}
+<main class="container">
+  <h1 class="about-name">{% trans 'Categorías' %}</h1>
+  <!-- Barra de navegación de categorías con estilos personalizados -->
+  <nav class="category-nav-historias text-center mb-4">
+    <a href="{% url 'historias' %}" class="link-historias{% if not category %} active{% endif %}">
+        {% trans 'Todas' %}
+    </a>
+    <span class="separator"> | </span>
+    {% for cat in categories %}
+        <a href="{% url 'category' cat.id %}" class="link-historias{% if category and category.id == cat.id %} active{% endif %}">
+            {% trans cat.name %}
+        </a>
+        {% if not forloop.last %}<span class="separator"> | </span>{% endif %}
+    {% endfor %}
+  </nav>
+</main>
+
+<main class="container"> 
+ 
+  <div class="grid-projects">
+    {% for post in posts %}
+      <a href="{% url 'historia' post.id %}" class="card-link">
+        <div class="card-project" style="--i:url('{{ post.image.url }}')">
+          <div class="content-project">
+            <h2>{{ post.title }}</h2>
+          </div>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</main>
+
+
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'base/index.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}
+  {% trans 'Fotografía' %}
+{% endblock %}
+
+
+{% block content %}
+<main class="container">
+  <h1 class="about-name">{% trans 'Fotografía' %}</h1>
+  <div class="content-container">
+    <p>{{ post.content|linebreaks }}</p>
+    <h2 class="subtitle">{{ post.title }}</h2>
+  </div>
+
+  <div class="galeria">
+    {% for image in post.imagenes.all %}
+      <img src="{{ image.image.url }}" alt="{{ post.title }}" onclick="fullView({{ forloop.counter0 }})">
+    {% endfor %}
+  </div>
+  
+  <div id="fullImageView">
+    <button id="prevButton" onclick="prevImage()">&#10094;</button>
+    <img id="fullImage">
+    <button id="nextButton" onclick="nextImage()">&#10095;</button>
+    <span id="closeButton" onclick="closeFullView()">X</span>
+  </div>
+  <div class="social-share">
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank">
+      <i class="fab fa-facebook"></i>
+    </a>
+    <a href="https://x.com/intent/tweet?url={{ request.build_absolute_uri }}&text={{ post.title }}" target="_blank">
+      <i class="fa-brands fa-x-twitter"></i>
+    </a>
+    <a href="https://www.instagram.com/?url={{ request.build_absolute_uri }}" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://wa.me/?text={{ request.build_absolute_uri }}" target="_blank">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div> 
+</main>
+
+<script type="text/javascript">
+  var currentIndex = 0;
+  var images = [];
+
+  document.addEventListener("DOMContentLoaded", function() {
+    images = Array.from(document.querySelectorAll(".galeria img")).map(img => img.src);
+  });
+
+  function fullView(index) {
+    currentIndex = index;
+    document.getElementById("fullImage").src = images[currentIndex];
+    document.getElementById("fullImageView").style.display = "flex";
+  }
+
+  function closeFullView() {
+    document.getElementById("fullImageView").style.display = "none";
+  }
+
+  function prevImage() {
+    currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+    document.getElementById("fullImage").src = images[currentIndex];
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+    document.getElementById("fullImage").src = images[currentIndex];
+  }
+</script>
+
+{% endblock %}
+
+

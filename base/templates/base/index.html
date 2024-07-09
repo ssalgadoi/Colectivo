@@ -1,0 +1,150 @@
+{% extends 'base/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+  {% trans 'Inicio' %}
+{% endblock %}
+
+{% block content %}
+<section class="contenedor-inicio">
+  <!-- Carrusel Principal -->
+  <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+          {% for post in history_posts|slice:":6" %}
+              <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                  <a href="{% url 'historia' post.id %}" class="carousel-link">
+                      <img class="d-block w-100" src="{{ post.image.url }}" alt="{{ post.title }}">
+                      <div class="carousel-caption d-md-block">
+                          <div class="black-bar">
+                              <h1>{{ post.title }}</h1>
+                              <h3>{{ post.nombre }}</h3>
+                          </div>
+                      </div>
+                  </a>
+              </div>
+          {% endfor %}
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+      </button>
+  </div>
+</section>
+
+
+
+<!-- Sección Proyectos -->
+<section class="container-fluid">
+  <h1 class="about-name ">{% trans 'Últimos proyectos' %}</h1>
+  <div class="grid-projects">
+    {% for post in posts %}
+      <a href="{% url 'historia' post.id %}" class="card-link">
+        <div class="card-project" style="--i:url('{{ post.image.url }}')">
+          <div class="content-project">
+            <h2>{{ post.title }}</h2>
+          </div>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+  <div class="project-button-container">
+      <a class="project-button" href="{% url 'historias' %}">{% trans 'Ir a proyectos' %}</a>
+  </div>
+</section>
+
+
+
+
+<section class="container-form" id="contacto">
+  <h1 class="about-name title-name">{% trans 'Contacto' %}</h1>
+  <div class="container-fluid contenedor-flex">
+    <!-- Contenedor del formulario de contacto -->
+    <div class="contacto-formulario">
+      <!-- Formulario de contacto -->
+      <form id="contact-form" action="" method="POST">
+        {% csrf_token %}
+        {{ contact_form|crispy }}
+        <input type="submit" value="{% trans 'Enviar' %}">
+      </form> 
+      <!-- Mensajes de éxito/error -->
+      <div id="form-messages">
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }} mt-5" role="alert">
+            <strong>{{ message }}</strong>
+          </div>
+        {% endfor %}
+      </div> 
+      <!-- Fin formulario de contacto -->
+    </div>
+    <!-- Fin del contenedor del formulario de contacto -->
+
+    <!-- Contenedor de servicios -->
+    <div class="servicios-contact">
+      <div class="servicios-contenedor">
+          <div class="email-container">
+              <i class="fas fa-envelope-open-text"></i>
+              <a href="mailto:rectangulo.salgado@gmail.com">rectangulo.salgado@gmail.com</a>
+          </div>
+          <ul class="social-icons-contact">
+              <li>
+                  {% if LINK_INSTAGRAM %}      
+                  <a href="{{ LINK_INSTAGRAM }}" class="link" target="_blank">
+                      <i class="fa-brands fa-instagram"></i>
+                  </a>
+                  {% endif %}
+              </li>
+              <li>
+                  {% if LINK_X %} 
+                  <a href="{{ LINK_X }}" class="instagram-icon" target="_blank">
+                      <i class="fa-brands fa-x-twitter"></i>
+                  </a>
+                  {% endif %}
+              </li>
+              <li>
+                  {% if LINK_FACEBOOK %} 
+                  <a href="{{ LINK_FACEBOOK }}" class="instagram-icon" target="_blank">
+                      <i class="fa-brands fa-facebook"></i>
+                  </a>
+                  {% endif %}
+              </li>
+              <li>
+                  {% if LINK_VIMEO %} 
+                  <a href="{{ LINK_VIMEO }}" class="link" target="_blank">
+                      <i class="fa-brands fa-vimeo"></i>
+                  </a>
+                  {% endif %}
+              </li>
+          </ul>
+      </div>
+  </div>
+    <!-- Fin del contenedor de servicios -->
+
+
+  
+  </div>
+ 
+  <p class="año">Colectivo Rectángulo <span>&copy</span> <span id="current-year"></span></p>
+</section>
+<script> 
+  // Función para manejar el desvanecimiento de los mensajes
+  document.addEventListener("DOMContentLoaded", function() {
+      var messages = document.querySelectorAll('.alert');
+      messages.forEach(function(message) {
+          setTimeout(function() {
+              message.style.transition = "opacity 1s";
+              message.style.opacity = "0";
+              setTimeout(function() {
+                  message.remove();
+              }, 1000);
+          }, 3000);
+      });
+  });
+</script> 
+
+{% endblock %}

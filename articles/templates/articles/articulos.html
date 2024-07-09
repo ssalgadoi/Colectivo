@@ -1,0 +1,30 @@
+{% extends 'base/index.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}
+  Noticias
+{% endblock %}
+
+{% block content %}
+
+<main class="container">
+  <h1 class="about-name">{% trans 'Noticias' %}</h1>
+  {% for post in posts %}
+  <div class="container-project">
+    <div class="project-image">
+      <div class="project-img">
+        <img src="{{ post.image.url }}" alt="{{ post.title }}" class="project-image"> <!-- Imagen con clase project-image -->
+      </div>
+    </div>
+    <div class="project-content">
+      <h2 class="project-title">{{ post.title }}</h2>
+      <p class="project-text">{{ post.content }}</p>
+      <a href="{{ post.url_link }}" class="project-button " target="_blank">{% trans 'Leer más' %}</a>
+    </div>
+  </div>
+  {% endfor %}
+</main>
+
+{% endblock %}

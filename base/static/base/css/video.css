@@ -1,0 +1,64 @@
+
+
+/* Title Styling */
+/* h1 {
+  font-size: 2.5rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+} */
+
+/* Column Styling */
+.video-column, .text-column {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 15px;
+  
+} 
+.text-column {
+  word-wrap: break-word; /* Para romper palabras largas */
+  overflow-wrap: break-word; /* Alternativa para navegadores que no soportan word-wrap */
+}
+
+
+/* Text Styling */
+.text-content {
+  padding: 20px;
+ 
+} 
+
+.text-content p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  word-wrap: break-word;
+}  
+
+
+/* Social Share Buttons Styling */
+.social-share {
+  display: flex;
+  gap: 20px; 
+  margin-top: 20px; 
+  justify-content: center; 
+  align-items: center; 
+  margin: 80px auto 20px auto;
+} 
+
+.social-share a {
+  color: #fff; 
+  background-color: #000000; 
+  width: 50px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; 
+  text-decoration: none;
+  transition: background-color 0.3s; 
+  font-size: 24px; 
+}    
+  /* Color de fondo al pasar el ratón */
+.social-share a:hover {
+  background-color: #555; 
+}       

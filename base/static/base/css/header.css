@@ -1,0 +1,265 @@
+/* Estilos generales de la cabecera */
+
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.dropdown-menu {
+    width: 150px; /* Ancho fijo */
+    height: 115px; /* Alto fijo */
+    min-width: 10px; /* Ancho mínimo para garantizar consistencia */
+    
+}
+
+/* Estilos para el logo */
+.logo {
+    line-height: 70px; /* Ajusta el line-height según el tamaño del contenedor */
+    padding: 0 30px; /* Espacios alrededor del logo */
+    text-decoration: none; /* Quitar decoración de texto */
+}
+
+.image {
+    width: 70px; /* Ancho de la imagen */
+    height: auto; /* Altura automática para mantener la proporción */
+    margin-right: 20px; /* Margen a la derecha de la imagen para separación */
+}
+
+.titulo {
+    color: #000; /* Color del texto */
+    font-size: 20px; /* Tamaño del texto */
+    height: auto;
+    display: none;
+}
+
+.titulo-rectangulo {
+    font-weight: bold; /* Estilo del texto */
+}
+.navbar-nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Estilos para los enlaces del menú */
+.nav-menu-link {
+    color: black !important;
+    font-size: 15px !important;
+    padding: 10px 20px !important;
+    font-weight: 200 !important;
+}
+
+.nav-item {
+    margin-right: 10px;
+    position: relative;
+}
+
+/* Efectos hover y active en los enlaces */
+.nav-menu-link::after {
+    content: "";
+    height: 2px;
+    width: 0;
+    background-color: rgb(63, 63, 63);
+    display: block;
+    transition: all 300ms;
+}
+
+.nav-menu-link:hover::after,
+.nav-menu-link:focus::after,
+.nav-menu-link_active::after {
+    width: 100%;
+}
+
+
+.navbar-nav-header .nav-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -5px;
+    transform: translateY(-50%);
+    height: 70%;
+    width: 1px;
+    background-color: #ccc;
+}
+
+/* Estilos para el botón de scroll to top */
+.scroll-to-top-btn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    padding: 10px 30px;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+    opacity: 0.40; 
+}
+
+.scroll-to-top-btn:hover {
+    background-color: #818181;
+}
+
+
+
+/* 
+
+/* Estilos responsivos */
+@media screen and (max-width: 1000px) {
+    .image {
+        display: none;
+    }
+
+    .titulo {
+        display: block;
+        text-decoration: none;
+    }
+
+    .logo {
+        font-size: 30;
+        padding: 0 10px;
+        line-height: 120px;
+        margin-left: 1px;
+    }
+
+    .custom-dropdown-menu {
+        background-color: #050000;
+    }
+
+    .footer {
+        min-height: 20vh;
+    }
+
+    .titulo-footer {
+        display: none;
+    }
+
+    .image-footer {
+        width: 50px;
+        height: auto;   
+    }
+    .navbar-nav-header .nav-item:not(:last-child)::after {
+         display: none; /*Elimina las lines de separacion  */
+    } 
+    .nav-menu-link {
+        color: rgb(0, 0, 0) !important;
+        font-size: 17px !important;
+        padding: 10px 15px !important;
+    } 
+    .dropdown-menu {
+        width: 1000px;  /* Ancho de la caja */
+        height: 115px; /* Alto de la caja */
+    }
+}
+
+
+.top-bar {
+    background-color: #000000; /* Fondo negro */
+    padding: 2px 0; /* Espaciado vertical */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.top-bar .instagram-icon {
+    font-size: 20px; /* Tamaño del ícono */
+    color: #ffffff; /* Color del ícono (blanco en este caso) */
+    transition: transform 0.3s ease; /* Transición para el hover */
+    margin-right: 20px; 
+}
+
+.top-bar .instagram-icon:hover {
+    transform: scale(1.1); /* Efecto de escala en el hover */
+}
+
+/* Historia */
+.contenedor h1 {
+    margin-bottom: 40px; /* Ajusta este valor según sea necesario */
+}
+
+/* .titulo-post {
+    font-weight: 700;
+} */
+.texto p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    
+}
+.texto {
+    margin-left: 10px;
+}
+/* .texto h1 {
+    text-decoration: underline;
+} */
+.autor {
+    text-align: center;
+    margin-bottom: 20px; /* Centrar el contenido */
+}
+
+/* Estilos adicionales para el contenedor del video en diferentes tamaños de pantalla */
+@media (max-width: 1200px) {
+    .col-xl-10 {
+      padding: 0 15px; /* Ajusta el padding para pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 768px) {
+    .col-xl-6 {
+      padding: 0 15px; /* Ajusta el padding para pantallas pequeñas */
+    }
+}
+/* Color del texto del enlace */
+/* Quitar subrayado predeterminado */
+/* Espacio entre enlaces */
+.autor a {
+    color: #595959; 
+    text-decoration: none; 
+    margin: 0 5px;
+    font-weight: normal; 
+} 
+/* .texto span {
+    font-weight: bold;
+} */
+/* Subrayado al pasar el ratón sobre el enlace */
+/* .autor a:hover {
+    text-decoration: underline; 
+    color: black;
+} */
+/* .title-stories {
+    margin-bottom: 50px;
+} */
+
+
+
+.language-toggle {
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: transparent;
+    outline: none;
+    border: 1px solid transparent; /* Borde transparente */
+    border-radius: 6px; /* Bordes redondeados */
+    width: 100px; /* Ancho específico */
+    height: 30px; /* Alto específico */
+    text-align: center; /* Centra el texto horizontalmente */
+    line-height: 30px; /* Centra el texto verticalmente */
+    font-size: 14px; /* Tamaño de fuente */
+    color: white; /* Color del texto */
+    display: flex; /* Utiliza flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+
+
+
+
+.language-toggle:hover {
+    background-color: #525252; /* Color de fondo al pasar el mouse */
+    border-color: #525252; /* Cambia el color del borde al pasar el mouse */
+}
+
+.language-toggle:active {
+    background-color: #e9ecef; /* Color de fondo al hacer clic */
+}

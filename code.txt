@@ -1,0 +1,63 @@
+!-- Contacto index -->
+<section class="container-fluid" id="contacto">
+  <h1 class="about-name">{% trans 'Contacto' %}</h1>
+
+  <div class="contenedor-flex">
+    <!-- Contenedor del formulario de contacto -->
+    <div class="contacto-formulario">
+      <!-- Formulario de contacto -->
+      <form id="contact-form" action="" method="POST">
+        {% csrf_token %}
+        {{ contact_form|crispy }}
+        <input type="submit" value="{% trans 'Enviar' %}">
+      </form> 
+      <!-- Mensajes de éxito/error -->
+      <div id="form-messages">
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }} mt-5" role="alert">
+            <strong>{{ message }}</strong>
+          </div>
+        {% endfor %}
+      </div> 
+      <!-- Fin formulario de contacto -->
+    </div>
+    <!-- Fin del contenedor del formulario de contacto -->
+
+    <!-- Contenedor de servicios -->
+    <div class="servicios-contact">
+      <h2 class="servicio-title">{% trans 'Servicios' %}</h2>
+      <div class="servicios-contenedor">
+        <div class="servicio">
+          <p>
+            <a href="#" class="enlace-servicio">
+              <i class="fas fa-video icono-servicio"></i><span class="nombre-servicio">{% trans 'Audiovisuales' %}</span>
+            </a>
+          </p>
+          <p>
+            <a href="#" class="enlace-servicio">
+              <i class="fas fa-camera icono-servicio"></i><span class="nombre-servicio">{% trans 'Fotografía' %}</span>
+            </a>
+          </p>
+            <!-- Botón de correo electrónico -->
+   
+        </div>
+        
+      </div>
+      <p class="parrafo-correo">
+        {% trans 'Enviar correo :' %}
+        <a href="mailto:rectangulo.salgado@gmail.com" class="boton-correo">rectangulo.salgado@gmail.com</a>
+      </p>
+    </div> 
+    <!-- Fin del contenedor de servicios -->
+
+  
+  </div>
+</section> 
+
+
+.custom-navbar {
+    background-color: rgba(244, 11, 11, 0.952);
+    border-bottom: 1px solid rgb(240, 8, 8);
+    height: 92px; /* Altura fija */
+    min-height: 92px; /* Altura mínima para garantizar consistencia */
+}

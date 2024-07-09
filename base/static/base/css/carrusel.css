@@ -1,0 +1,41 @@
+
+/* Define el tamaño del contenedor del carrusel */
+#carouselExampleAutoplaying {
+    width: 100%; /* Ajusta el ancho según tus necesidades */
+    height: 700px; /* Ajusta la altura según tus necesidades */
+    overflow: hidden;
+    margin: 0 ; /* Centra horizontalmente el carrusel */
+    display: block;
+}
+
+  /* Asegúrate de que las imágenes tengan el mismo tamaño y estén centradas */
+.carousel-inner {
+    height: 100%;
+} 
+
+.carousel-item {
+    height: 100%;
+}
+
+/* Centra la imagen */
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center; 
+} 
+
+/* Estilo para la caja negra con bordes redondeados y texto blanco */
+.carousel-caption .black-bar {
+    background-color: black; 
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 15px; /* Espaciado interno */
+    display: inline-block; /* Para ajustar el tamaño de la caja al contenido */
+}
+
+.carousel-caption h1, 
+.carousel-caption h3 {
+    color: white; /* Texto blanco */
+    margin: 0; /* Eliminar márgenes */
+    font-size: 20px;
+}

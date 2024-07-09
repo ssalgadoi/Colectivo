@@ -1,0 +1,20 @@
+.bg-faded {
+    background-color: #f8f9fa; /* Color de fondo para el contenedor */
+    border-radius: 10px; /* Borde redondeado */
+    padding: 30px; /* Espaciado interno */
+    margin-top: 10px;
+}
+
+.section-heading {
+    font-size: 32px; /* Tamaño del título */
+    font-weight: bold; /* Peso del texto */
+    color: #333; /* Color del texto */
+    text-align: center; /* Alineación del título */
+    margin-bottom: 20px; /* Espacio inferior */
+}
+
+.section-content {
+    font-size: 16px; /* Tamaño del contenido */
+    line-height: 1.8; /* Espaciado entre líneas */
+    color: #666; /* Color del texto */
+}

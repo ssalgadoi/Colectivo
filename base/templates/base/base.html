@@ -1,0 +1,170 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Icono Web -->
+  <link rel="icon" href="{% static 'core/img/logo.png' %}" type="image/x-icon">
+
+  <!-- Incluir jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+   
+   <!-- Our project just needs Font Awesome Free's Solid and Brand files -->
+  
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css"> 
+
+    <!-- Font Awesome desde el CDN -->
+    {% comment %} <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> {% endcomment %}
+    <!-- Enlaces a los archivos CSS y JavaScript de Bootstrap desde el CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+
+   <title>{% block title %}{% endblock %} | Colectivo Rectángulo</title>
+   <!--CSS-->
+   <link rel="stylesheet" href="{% static 'base/css/header.css' %}">
+   <link rel="stylesheet" href="{% static 'base/css/footer.css' %}">
+   <link rel="stylesheet" href="{% static 'base/css/news.css' %}">
+   <link rel="stylesheet" href="{% static 'base/css/pages.css' %}">
+   <link rel="stylesheet" href="{% static 'base/css/history.css' %}">
+   <link rel="stylesheet" href="{% static 'base/css/video.css' %}">
+   <link rel="stylesheet" href="{% static 'base/css/services.css' %}">
+   <link rel="stylesheet" href="{% static 'base/css/project.css' %}">
+   <link rel="stylesheet" href="{% static 'base/css/contact.css' %}">
+   <link rel="stylesheet" href="{% static 'base/css/category.css' %}">
+   <link rel="stylesheet" href="{% static 'base/css/videos.css' %}">
+   <link rel="stylesheet" href="{% static 'base/css/carrusel.css' %}">
+   <link rel="stylesheet" href="{% static 'base/css/about.css' %}">
+   <link rel="stylesheet" href="{% static 'base/css/photography.css' %}">
+   
+</head>
+<body>
+    <header class="">
+      <div class="top-bar">
+        <div class="container-fluid d-flex justify-content-end align-items-center">
+          {% if LINK_INSTAGRAM %}      
+          <a href="{{LINK_INSTAGRAM}}" class="instagram-icon" target="_blank">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          {% endif %}
+          <form id="language-form" action="{% url 'set_language' %}" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="next" value="{{ request.path }}">
+            {% get_current_language as LANGUAGE_CODE %}
+          <button type="submit" name="language" value="{% if LANGUAGE_CODE == 'en' %}es{% else %}en{% endif %}" class="language-toggle">
+            {% if LANGUAGE_CODE == 'en' %}Español{% else %}English{% endif %}
+          </button>
+          </form>
+        </div>
+      </div>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <!-- Logo y Título -->
+          <a href="{% url 'index' %}" class="logo d-flex align-items-center navbar-brand">
+            <img class="image" src="{% static 'base/img/logo.png' %}" alt="Logo">
+            <h1 class="titulo titulo-colectivo">Colectivo<span class="titulo-rectangulo">Rectángulo</span></h1>
+        </a>
+        <!-- Botón de navegación colapsable para móviles -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav navbar-nav-header">
+              <li class="nav-item">
+                <a class="nav-link nav-menu-link {% if request.path == '/' %}nav-menu-link_active{% endif %}" href="{% url 'index' %}">{% trans 'Inicio' %}</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-menu-link {% if request.path == '/nosotros/' %}nav-menu-link_active{% endif %}" href="{% url 'nosotros' %}"">{% trans 'Nosotros' %}</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-menu-link {% if request.resolver_match.url_name == 'historias' or request.resolver_match.url_name == 'historia' or request.resolver_match.url_name == 'category' %}nav-menu-link_active{% endif %}" 
+                href="{% url 'historias' %}">{% trans 'Historias' %}
+                </a>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link nav-menu-link {% if '/fotografias/' in request.path or '/videos/' in request.path %}nav-menu-link_active{% endif %}" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                      {% trans 'Colaboraciones' %}
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item nav-menu-link" href="{% url 'fotografias' %}">{% trans 'Fotografía' %}</a>
+                      <a class="dropdown-item nav-menu-link" href="{% url 'videos' %}">{% trans 'Videos' %}</a>
+
+                  </div>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link nav-menu-link {% if request.path == '/proyectos/' %}nav-menu-link_active{% endif %}" href="{% url 'proyectos' %}">{% trans 'Proyectos' %}</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link nav-menu-link {% if request.path == '/articulos/' %}nav-menu-link_active{% endif %}" href="{% url 'articulos' %}">{% trans 'Noticias' %}</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link nav-menu-link {% if request.path == '/contacto/' %}nav-menu-link_active{% endif %}" href="{% url 'index' %}#contacto""">{% trans 'Contacto' %}</a>
+              </li>
+          </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    {% block content %} {% endblock %}
+    
+
+
+    {% if request.path != '/' %}
+    <footer class="footer">
+        <div class="contenedor__footer">
+        <ul class="social-icons">
+          <li>
+            {% if LINK_INSTAGRAM %}      
+          <a href="{{LINK_INSTAGRAM}}" class="link" target="_blank">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          {% endif %}
+          </li>
+          <li>
+            {% if LINK_X %} 
+          <a href="{{ LINK_X }}" class="instagram-icon" target="_blank">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          {% endif %}
+          </li>
+          <li>
+            {% if LINK_FACEBOOK %} 
+          <a href="{{ LINK_FACEBOOK }}" class="instagram-icon" target="_blank">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          {% endif %}
+          </li>
+          <li>
+            {% if LINK_VIMEO %} 
+          <a href="{{ LINK_VIMEO }}" class="link" target="_blank">
+            <i class="fa-brands fa-vimeo"></i>
+          </a>
+          {% endif %}
+          </li>
+        </ul>
+        <p class="menu">
+          {% load pages_extras %}
+          {% get_page_list as page_list %}
+          {% for page in page_list %}
+          <a href="{% url 'page' page.id page.title|slugify  %}" class="link nav-a">{% trans page.title  %}</a>
+          {% if not forloop.last %}·{% endif %}  
+          {% endfor %}
+        </p> 
+        <p class="año">Colectivo Rectángulo <span>&copy</span> <span id="current-year"></span></p>
+      </div>
+      </footer>
+      {% endif %}
+    <!-- Botón de scroll to top -->
+    <button id="scrollToTopBtn" class="scroll-to-top-btn" onclick="scrollToTop()">
+      <i class="fa-solid fa-arrow-up"></i><!-- Esto mostrará una flecha hacia arriba de FontAwesome -->
+    </button>
+    <script src="{% static 'base/js/buttonlanguage.js' %}"></script>
+    <script src="{% static 'base/js/date.js' %}"></script>
+    <script src="{% static 'base/js/scrollbase.js' %}"></script>
+</body>
+</html>

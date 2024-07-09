@@ -1,0 +1,213 @@
+.content-container {
+    margin: 0 auto; 
+    padding: 50px; 
+    text-align: justify; 
+} 
+
+.subtitle {
+    font-size: 1.9em; 
+    color: #555; 
+    margin-top: 40px; 
+    text-align: center; 
+    
+} 
+
+#fullImageView {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    text-align: center;
+    z-index: 9999;
+} 
+
+#fullImage {
+    padding: 24px;
+    max-width: 98%;
+    max-height: 98%;
+} 
+
+/* Fotografia Galeria de imagenes */
+
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    padding: 10px;
+} 
+
+.galeria img {
+    max-width: 298px;
+    max-height: 224px;
+    margin: 2px;
+} 
+
+.galeria img:hover {
+    cursor: pointer;
+    filter: brightness(70%);
+} 
+.content-container p {
+    line-height: 1.6; 
+    font-size: 23px; 
+    color: #333; 
+} 
+
+
+
+#closeButton {
+    position: absolute ;
+    top: 12px;
+    right: 12px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    z-index: 10000;
+
+} 
+#fullImageView {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+} 
+/* Hace que la imagen se ajuste al tamaño del contenedor sin deformarse */
+
+
+  /* Estilos para el contenedor de la imagen completa */
+
+
+
+
+  /* Estilos para el botón de cerrar */
+/* #closeButton {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+} */
+
+  /* Estilos para los botones de navegación */
+/* #prevButton, #nextButton {
+    position: absolute;
+    top: 50%;
+    font-size: 30px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+#prevButton {
+    left: 10px;
+} */
+/* 
+#nextButton {
+    right: 10px;
+} */
+
+/* #prevButton:hover, #nextButton:hover {
+    color: #f1f1f1;
+} */
+  /* Estilos para la imagen completa */
+/* #fullImage {
+    max-width: 90%;
+    max-height: 80%;
+} */
+
+
+/* 
+CSS de Fotografias */
+
+.post-list-fotografias {
+    display: flex;
+    min-height: 10vh;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 15px 40px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.category-content-fotografias {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+    max-width: 3000px;
+    margin: auto;
+}
+
+.post-fotografias {
+    box-shadow: 0 1px 6px 1px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: 0.2s;
+}
+
+.post-fotografias:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 1px 14px 2px rgba(0, 0, 0, 0.15);
+}
+
+.post-header-fotografias {
+    width: 100%;
+    height: 100%; /* Asegura que el contenedor de la imagen ocupe toda la altura disponible */
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+
+.post-img-fotografias {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.2s ease-in-out;
+}
+
+.post-fotografias:hover .post-img-fotografias {
+    transform: scale(1.1); 
+}
+
+.post-title-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Fondo negro con transparencia */
+    color: white; /* Color del texto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0; /* Inicia invisible */
+    transition: opacity 0.2s ease-in-out;
+}
+
+.post-fotografias:hover .post-title-overlay {
+    opacity: 1; /* Muestra el título al hacer hover */
+}
+
+.post-body-fotografias {
+    display: none; /* Ocultamos el post-body-fotografias ya que el título se muestra en la superposición */
+}
+
+@media (max-width: 1145px) {
+    .category-content-fotografias {
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 40px;
+        max-width: 800px;
+        margin: auto;
+    }
+}

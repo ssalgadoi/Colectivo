@@ -1,0 +1,29 @@
+{% extends 'base/base.html' %}
+
+{% load i18n %}
+
+{% block title %}
+  {% trans 'Videos' %}
+{% endblock %}
+
+{% block content %}
+<main class="container">
+  <h1 class="about-name">{% trans 'Videos' %}</h1>
+  <div class="grid-projects">
+    {% for post in posts %}
+        {% for category in post.category.all %}
+          {% if category.name == "Más" %}
+              <a href="{% url 'historia' post.id %}" class="card-link">
+                <div class="card-project" style="--i:url('{{ post.image.url }}')">
+                  <div class="content-project">
+                    <h2>{{ post.title }}</h2>
+                  </div>
+                </div>
+              </a>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+  </div>
+</main>
+
+{% endblock %}

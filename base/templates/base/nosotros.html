@@ -1,0 +1,43 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}
+  {% trans 'Inicio' %}
+{% endblock %}
+
+{% block content %}
+<!-- Quienes Somos -->
+<section class="container" id="nosotros">
+    <h1 class="about-name">{% trans 'Quiénes Somos' %}</h1>
+    <div class="container-about">
+      
+      <div class="about-content">
+        <!-- <h2 class="about-title">Colectivo Rectángulo</h2> -->
+        <a href="{% url 'index' %}" class="logo-project d-flex align-items-center navbar-brand">
+          <img class="image-project" src="{% static 'base/img/logo.png' %}" alt="Logo">
+        </a>
+        
+        <p class="about-text">
+          {% blocktrans %}
+          El colectivo Rectángulo, compuesto por el fotógrafo Richard Salgado y por el realizador Miguel Luna,
+          nace en el 2012 en Santiago de Chile en base al encuentro entre la fotografía y el cine, mientras ambos se forman como documentalistas en la Universidad de Chile.
+          {% endblocktrans %}
+        </p>
+        
+        
+      </div>
+      <div class="about-image">
+        <div class="about-img">
+          <img src="{% static 'base/img/nosotros.png' %}">
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  {% endblock %}
+
+ 
