@@ -21,7 +21,7 @@ justify-content: space-between; /* Distribuye los elementos uniformemente */
 .contacto-formulario {
 flex: 1; /* Ocupa dos veces más espacio que servicios-contact */
 margin-right: 10px; /* Espacio entre los elementos */
-padding: 20px; /* Espacio interno */
+padding: 50px; /* Espacio interno */
 background-color: #000000; /* Color de fondo */
 box-sizing: border-box; /* Incluye padding y borde en el ancho total */
 margin-bottom: 80px;

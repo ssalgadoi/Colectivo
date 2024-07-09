@@ -10,7 +10,7 @@
 
 {% block content %}
 <main class="container">
-  <h1 class="about-name">{% trans 'Historia' %}</h1>
+  <h1 class="titulo-principal">{% trans 'Historia' %}</h1>
   <div class="row">
     <div class="video-column">
       <div class="video-historia">
@@ -21,9 +21,9 @@
     </div>
     <div class="text-column text-content" > 
       <h1 >{{ post.title }}</h1>
-      <p style="" >{{ post.content|linebreaks }}</p>
+      <p class="historia-contenido">{{ post.content }}</p>
       <p class="post-date">{{ post.data }}</p>
-      <p class="author">
+      <p class="autor">
         <span class="category-list">
           {% for category in post.category.all %}
             <a href="{% url 'category' category.id %}" class="link">{{ category.name }}</a>{% if not forloop.last %}, {% endif %}

@@ -29,30 +29,17 @@
     margin-bottom: 20px; /* Agregar margen entre contenido e imagen */
 }
 
-.about-name {
+h1.about-name {
     font-weight: 100;
     font-size: 45px; /* Aumentar tamaño de fuente */
     margin-bottom: 40px; /* Ajustar margen para mejor espaciado */
     position: relative;
     text-transform: capitalize;
     margin-top: 90px;
+    text-align: center;
 }
 
-/* .about-title {
-    font-size: 35px;
-    font-weight: 700;
-    margin-bottom: 45px;
-} */
 
-/* .about-text {
-    margin-bottom: 20px;
-    font-size: 15px;
-} */
-/* .about-image {
-    margin-top: 20px;
-    width: 100%;
-    height: auto;
-} */
 
 .about-img {
     width: 100%; /* Asegurar ancho completo */
