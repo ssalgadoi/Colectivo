@@ -78,11 +78,6 @@
         text-align: center; 
     } 
 } 
-    /* Ajuste de margen inferior en pantallas más pequeñas */
-    /* .project-img {
-        margin-bottom: 1.5rem; 
-    }
-} */
 
 
 /* Proyectos */
@@ -162,4 +157,8 @@
     color: white;
 }
 
-
+@media (max-width: 768px) {
+    .grid-projects {
+        grid-template-columns: 1fr; /* Cambia a una sola columna en dispositivos móviles */
+    }
+}

@@ -89,42 +89,54 @@
     
 }
 
-/* Estilos CSS personalizados */
+/* Estilos CSS simplificados barra de navegacion Historias */
+.category-nav-historias {
+    position: fixed;
+    top:230px; /* Ajusta esta propiedad según la distancia vertical deseada */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background-color: #fff;
+    padding: 10px;
+    width: 100%;
+   
+}
 
 .category-nav-historias .link-historias {
-    text-decoration: none; /* Sin subrayado en los enlaces */
-    color: #000000; /* Color del texto */
-    padding: 8px 12px; /* Espaciado interno */
-    margin: 0 5px; /* Margen entre enlaces */
-    border-radius: 4px; /* Bordes redondeados */
-    font-weight: 200 ;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
+    text-decoration: none;
+    color: #000000;
+    padding: 8px 12px;
+    margin: 0 5px;
+    font-weight: 200;
+    position: relative;
 }
 
-.category-nav-historias .link-historias:hover {
-    background-color: #888888; /* Color de fondo al pasar el mouse */
-    color: #fff; /* Color del texto al pasar el mouse */
+.category-nav-historias .link-historias::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #000000;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
 }
 
-.category-nav-historias .link-historias.active {
-    background-color: #000000; /* Color de fondo del enlace activo */
-    color: #ffffff; /* Color del texto del enlace activo */
-    font-weight: bold; /* Texto en negrita para el enlace activo */
-}
-
-.category-nav-historias .link-historias.active:hover {
-    background-color: #333333; /* Color de fondo al pasar el mouse en el enlace activo */
-    color: #ffffff; /* Color del texto al pasar el mouse en el enlace activo */
-    font-weight: bold; /* Mantener el texto en negrita */
+.category-nav-historias .link-historias:hover::after,
+.category-nav-historias .link-historias.active::after {
+    width: 100%;
 }
 
 .category-nav-historias .separator {
-    color: #999; /* Color del separador */
+    color: #999;
 }
+
 
 @media (max-width: 1000px) {
     .category-nav-historias {
         padding: 7px;
+      
     }
     
     .category-nav-historias .link-historias {

@@ -1,7 +1,5 @@
 /* Historia */
-/* .contenedor h1 {
-    margin-bottom: 40px; 
-} */
+
 .video-historia {
     position: relative;
     overflow: hidden;
@@ -18,12 +16,7 @@
     height: 100%;
 }
 
-.texto {
-    margin-left: 10px;
-}
-/* .texto h1 {
-    text-decoration: underline;
-} */
+
 
 
 .title-stories {
@@ -43,44 +36,5 @@
     }
 }
 
-  /* Estilos CSS personalizados */
-
-.category-nav-historias {
-    background-color: #ffffff; /* Color de fondo */
-    padding: 10px; /* Espaciado interno */
-    margin-bottom: 20px; /* Margen inferior */
-    text-align: center; /* Alineación del texto */
-}
-
-.category-nav-historias .link-historias {
-    text-decoration: none; /* Sin subrayado en los enlaces */
-    color: #000000; /* Color del texto */
-    padding: 8px 12px; /* Espaciado interno */
-    margin: 0 5px; /* Margen entre enlaces */
-    border-radius: 4px; /* Bordes redondeados */
-    font-weight: 200 ;
-    
-    transition: background-color 0.3s ease; /* Transición suave */
-}
-
-.category-nav-historias .link-historias:hover {
-    background-color: #888888; /* Color de fondo al pasar el mouse */
-    color: #fff; /* Color del texto al pasar el mouse */
-}
-
-.category-nav-historias .separator {
-    color: #999; /* Color del separador */
-}
 
 
-
-@media (max-width: 1000px) {
-    .category-nav-historias {
-        padding: 7px;
-    }
-    
-    .category-nav-historias .link-historias {
-        padding: 6px 1px;
-        margin: 1px;
-    }
-}
