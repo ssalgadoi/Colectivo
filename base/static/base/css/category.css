@@ -91,15 +91,14 @@
 
 /* Estilos CSS simplificados barra de navegacion Historias */
 .category-nav-historias {
-    position: absolute;
-    top:230px; /* Ajusta esta propiedad según la distancia vertical deseada */
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative; /* Cambiado a relativo para fluir con el documento */
+    text-align: center; /* Centrado horizontal */
     z-index: 1000;
     background-color: #fff;
     padding: 10px;
     width: 100%;
-   
+    margin: 0 auto; /* Centrado horizontal */
+    margin-top: -60px; 
 }
 
 .category-nav-historias .link-historias {
@@ -109,6 +108,7 @@
     margin: 0 5px;
     font-weight: 200;
     position: relative;
+    display: inline-block; /* Asegura que el ancho del enlace se ajuste al contenido */
 }
 
 .category-nav-historias .link-historias::after {
@@ -125,25 +125,52 @@
 
 .category-nav-historias .link-historias:hover::after,
 .category-nav-historias .link-historias.active::after {
-    width: 100%;
+    width: 100%; /* Cambia el ancho a 100% del elemento padre (el enlace) */
 }
 
 .category-nav-historias .separator {
     color: #999;
 }
-.sub-title{
-    font-size: 30;
+
+.sub-title {
+    font-size: 30px; /* Asegúrate de especificar la unidad (px) para el tamaño de fuente */
 }
 
+.subtitle-categoria {
+    font-size: 30px;
+}
+
+.titulo-categoria {
+    font-weight: 100;
+    font-size: 45px; /* Aumentar tamaño de fuente */
+    margin-bottom: 100px; /* Ajustar margen para mejor espaciado */
+    position: relative;
+    text-transform: capitalize;
+    margin-top: 30px;
+}
 
 @media (max-width: 1000px) {
     .category-nav-historias {
-        padding: 7px;
-      
+        padding: 6px;
+        top: 10px; /* Ajustar la distancia vertical deseada */
+        display: flex; /* Usar flexbox */
+        flex-direction: column; /* Cambiar a disposición en columna */
     }
-    
+
     .category-nav-historias .link-historias {
-        padding: 6px 1px;
-        margin: 1px;
+        padding: 5px 10px; /* Ajustar el padding según sea necesario para dispositivos más pequeños */
+        margin: 5px; /* Ajustar el margen según sea necesario para dispositivos más pequeños */
+        display: inline-block; /* Asegura que el ancho del enlace se ajuste al contenido */
+    }
+
+    .sub-title,
+    .subtitle-categoria,
+    .titulo-categoria {
+        font-size: 24px; /* Reducir el tamaño de fuente para dispositivos más pequeños */
+        margin-bottom: 50px; /* Ajustar el margen inferior según sea necesario para dispositivos más pequeños */
+    }
+
+    .separator {
+        display: none; /* Ocultar el separador en pantallas pequeñas */
     }
 }

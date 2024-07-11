@@ -55,3 +55,16 @@
 .social-share a:hover {
   background-color: #555; 
 }       
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) {
+  .text-content, .video-content {
+    width: 100%; /* Ocupar todo el ancho disponible */
+    margin-bottom: 20px; /* Espacio entre las secciones */
+  }
+
+  .social-share {
+    margin-top: 30px; /* Ajuste de margen superior */
+    margin-bottom: 30px; /* Ajuste de margen inferior */
+  }
+}

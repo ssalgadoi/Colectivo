@@ -8,8 +8,9 @@
 
 {% block content %}
 <main class="container">
-    <h1 class="titulo-principal">
-        {% trans 'El Valle de los Negros' %}
+    <h1 class="titulo-categoria">
+      {% trans 'Historias' %} / 
+        <span class="subtitle-categoria">{% trans 'El Valle de los Negros' %}</span>
     </h1>
     
     <!-- Barra de navegación de categorías con estilos personalizados -->
@@ -21,7 +22,7 @@
             <span class="separator"> | </span>
             {% if forloop.counter == 2 %}  <!-- Asegura que el enlace del Valle de los Negros aparezca tercero -->
                 <a href="{% url 'valle' %}" class="link-historias{% if request.path == '/valle/' %} active{% endif %}">
-                    {% trans 'El valle de los Negros' %}
+                    {% trans 'El Valle de los Negros' %}
                 </a>
                 <span class="separator"> | </span>
             {% endif %}
@@ -63,6 +64,9 @@
     </div>
     {% endfor %}
   </main>
+
+  
+  
   
   
 {% endblock %}

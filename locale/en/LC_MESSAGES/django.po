@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-10 09:58-0400\n"
+"POT-Creation-Date: 2024-07-11 17:01-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: articles/templates/articles/articulos.html:13
-#: base/templates/base/base.html:104
+#: base/templates/base/base.html:105
 msgid "Noticias"
 msgstr "News"
 
@@ -27,15 +27,15 @@ msgstr "News"
 msgid "Leer más"
 msgstr "Read more"
 
-#: base/forms.py:9
+#: base/forms.py:8
 msgid "Escribe tu nombre"
 msgstr "Enter your name"
 
-#: base/forms.py:16 base/models.py:18
+#: base/forms.py:15 base/models.py:18
 msgid "Escribe tu email"
 msgstr "Enter your email"
 
-#: base/forms.py:23 base/models.py:19
+#: base/forms.py:21 base/models.py:19
 msgid "Escribe tu mensaje"
 msgstr "Enter your message"
 
@@ -43,42 +43,42 @@ msgstr "Enter your message"
 msgid "Ingresa tu nombre"
 msgstr "Enter your name"
 
-#: base/templates/base/base.html:80 base/templates/base/index.html:7
+#: base/templates/base/base.html:81 base/templates/base/index.html:7
 #: base/templates/base/nosotros.html:8
 msgid "Inicio"
 msgstr "Home"
 
-#: base/templates/base/base.html:83
+#: base/templates/base/base.html:84
 msgid "Nosotros"
 msgstr "About Us"
 
-#: base/templates/base/base.html:87 history/templates/history/historias.html:7
+#: base/templates/base/base.html:88 history/templates/history/category.html:11
+#: history/templates/history/historias.html:7
 #: history/templates/history/historias.html:12
+#: valle/templates/valle/valle.html:12
 msgid "Historias"
 msgstr "Stories"
 
-#: base/templates/base/base.html:92
+#: base/templates/base/base.html:93
 msgid "Colaboraciones"
 msgstr "Collaborations"
 
-#: base/templates/base/base.html:95 code.txt:38
-#: image/templates/image/fotografia.html:7
+#: base/templates/base/base.html:96 image/templates/image/fotografia.html:7
 #: image/templates/image/fotografia.html:13
 msgid "Fotografía"
 msgstr "Photography"
 
-#: base/templates/base/base.html:96 history/templates/history/videos.html:6
+#: base/templates/base/base.html:97 history/templates/history/videos.html:6
 #: history/templates/history/videos.html:11
 msgid "Videos"
 msgstr "Films"
 
-#: base/templates/base/base.html:101 project/templates/project/proyectos.html:6
+#: base/templates/base/base.html:102 project/templates/project/proyectos.html:6
 #: project/templates/project/proyectos.html:11
 msgid "Proyectos"
 msgstr "Projects"
 
-#: base/templates/base/base.html:107 base/templates/base/index.html:65
-#: code.txt:3
+#: base/templates/base/base.html:108 base/templates/base/index.html:65
 msgid "Contacto"
 msgstr "Contact"
 
@@ -90,7 +90,7 @@ msgstr "Latest projects"
 msgid "Ir a proyectos"
 msgstr "Go to projects"
 
-#: base/templates/base/index.html:73 code.txt:12
+#: base/templates/base/index.html:73
 msgid "Enviar"
 msgstr "Send"
 
@@ -111,9 +111,9 @@ msgstr ""
 "\n"
 "          The Rectángulo collective, composed of the photographer Richard "
 "Salgado and the filmmaker Miguel Luna,\n"
-"          was born in 2012 in Santiago de Chile based on the encounter between "
-"photography and cinema, while both were training as documentarians at the "
-"University of Chile.\n"
+"          was born in 2012 in Santiago de Chile based on the encounter "
+"between photography and cinema, while both were training as documentarians "
+"at the University of Chile.\n"
 "          "
 
 #: base/views.py:19
@@ -123,18 +123,6 @@ msgstr "The message has been sent successfully!"
 #: base/views.py:23
 msgid "¡El mensaje no ha podido ser enviado. Por favor, intente más tarde."
 msgstr "The message could not be sent. Please try again later."
-
-#: code.txt:28
-msgid "Servicios"
-msgstr "Services"
-
-#: code.txt:33
-msgid "Audiovisuales"
-msgstr "Audiovisuals"
-
-#: code.txt:47
-msgid "Enviar correo :"
-msgstr "Send email :"
 
 #: env/lib/python3.8/site-packages/ckeditor_uploader/forms.py:6
 msgid "Search files"
@@ -1414,37 +1402,40 @@ msgstr ""
 msgid "This media not found on site."
 msgstr ""
 
-#: history/admin.py:24
+#: history/admin.py:24 valle/admin.py:16
 msgid "Publication"
 msgstr ""
 
-#: history/admin.py:25
+#: history/admin.py:25 valle/admin.py:17
 msgid "Media"
 msgstr ""
 
-#: history/admin.py:26
+#: history/admin.py:26 valle/admin.py:18
 msgid "Relationships"
 msgstr ""
 
 #: history/templates/history/category.html:6
-#: history/templates/history/category.html:10
+#: history/templates/history/valle.html:5
 msgid "Categorías"
 msgstr "Categories"
 
-#: history/templates/history/category.html:14
-#: history/templates/history/historias.html:17
+#: history/templates/history/category.html:18
+#: history/templates/history/historias.html:18
+#: valle/templates/valle/valle.html:19
 msgid "Todas"
 msgstr "All"
+
+#: history/templates/history/category.html:24
+#: history/templates/history/historias.html:24
+#: valle/templates/valle/valle.html:7 valle/templates/valle/valle.html:13
+#: valle/templates/valle/valle.html:25
+msgid "El Valle de los Negros"
+msgstr "The Valley of the Blacks"
 
 #: history/templates/history/historia.html:7
 #: history/templates/history/historia.html:13
 msgid "Historia"
 msgstr "Story"
-
-#: history/templates/history/video.html:7
-#: history/templates/history/video.html:12
-msgid "Video"
-msgstr "Film"
 
 #: image/templates/image/fotografias.html:10
 #: image/templates/image/fotografias.html:15
@@ -1502,3 +1493,15 @@ msgstr "link"
 #: social/models.py:13
 msgid "enlaces"
 msgstr "links"
+
+#~ msgid "Servicios"
+#~ msgstr "Services"
+
+#~ msgid "Audiovisuales"
+#~ msgstr "Audiovisuals"
+
+#~ msgid "Enviar correo :"
+#~ msgstr "Send email :"
+
+#~ msgid "Video"
+#~ msgstr "Film"
