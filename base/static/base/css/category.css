@@ -91,7 +91,7 @@
 
 /* Estilos CSS simplificados barra de navegacion Historias */
 .category-nav-historias {
-    position: fixed;
+    position: absolute;
     top:230px; /* Ajusta esta propiedad según la distancia vertical deseada */
     left: 50%;
     transform: translateX(-50%);

@@ -70,7 +70,7 @@ msgstr "Photography"
 #: base/templates/base/base.html:96 history/templates/history/videos.html:6
 #: history/templates/history/videos.html:11
 msgid "Videos"
-msgstr "Videos"
+msgstr "Films"
 
 #: base/templates/base/base.html:101 project/templates/project/proyectos.html:6
 #: project/templates/project/proyectos.html:11
@@ -1444,7 +1444,7 @@ msgstr "Story"
 #: history/templates/history/video.html:7
 #: history/templates/history/video.html:12
 msgid "Video"
-msgstr "Video"
+msgstr "Film"
 
 #: image/templates/image/fotografias.html:10
 #: image/templates/image/fotografias.html:15

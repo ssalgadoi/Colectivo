@@ -4,21 +4,19 @@ from .models import Contact
 
 class ContactForm(forms.ModelForm):
     name = forms.CharField(
-        # label=_("Nombre"),
         required=True,
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Escribe tu nombre')}),
         min_length=3,
         max_length=100
     )
     email = forms.EmailField(
-        # label=_("Email"),
+     
         required=True,
         widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': _('Escribe tu email')}),
         min_length=3,
         max_length=100
     )
     message = forms.CharField(
-        # label=_("Contenido"),
         required=True,
         widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 3, 'placeholder': _('Escribe tu mensaje')}),
         min_length=10,

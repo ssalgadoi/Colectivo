@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post, Category
+from django.utils.translation import get_language
 
 
 
@@ -22,16 +23,33 @@ def category(request, category_id):
     return render(request, "history/category.html", {'category': category, 'categories': categories, 'posts': posts})
 
 
+
+# Page Video
+
 def audiovisual(request):
-    # Obtener la categoría 'Más'
+    # Obtener el idioma actual
+    current_language = get_language()
+
+    # Obtener las categorías 'Más' y 'More'
     try:
-        mas_category = Category.objects.get(translations__name='Más')
+        mas_category = Category.objects.language('es').get(translations__name='Más')
     except Category.DoesNotExist:
         mas_category = None
     
-    # Filtrar los posts que pertenecen a la categoría 'Más'
+    try:
+        more_category = Category.objects.language('en').get(translations__name='More')
+    except Category.DoesNotExist:
+        more_category = None
+    
+    # Filtrar los posts que pertenecen a las categorías 'Más' y 'More'
+    categories_to_filter = []
     if mas_category:
-        posts = Post.objects.filter(category=mas_category)
+        categories_to_filter.append(mas_category)
+    if more_category:
+        categories_to_filter.append(more_category)
+
+    if categories_to_filter:
+        posts = Post.objects.filter(category__in=categories_to_filter)
     else:
         posts = []
 

@@ -1,81 +1,57 @@
-!-- Contacto index -->
-<section class="container-fluid" id="contacto">
-  <h1 class="about-name">{% trans 'Contacto' %}</h1>
-
-  <div class="contenedor-flex">
-    <!-- Contenedor del formulario de contacto -->
-    <div class="contacto-formulario">
-      <!-- Formulario de contacto -->
-      <form id="contact-form" action="" method="POST">
-        {% csrf_token %}
-        {{ contact_form|crispy }}
-        <input type="submit" value="{% trans 'Enviar' %}">
-      </form> 
-      <!-- Mensajes de éxito/error -->
-      <div id="form-messages">
-        {% for message in messages %}
-          <div class="alert alert-{{ message.tags }} mt-5" role="alert">
-            <strong>{{ message }}</strong>
-          </div>
-        {% endfor %}
-      </div> 
-      <!-- Fin formulario de contacto -->
-    </div>
-    <!-- Fin del contenedor del formulario de contacto -->
-
-    <!-- Contenedor de servicios -->
-    <div class="servicios-contact">
-      <h2 class="servicio-title">{% trans 'Servicios' %}</h2>
-      <div class="servicios-contenedor">
-        <div class="servicio">
-          <p>
-            <a href="#" class="enlace-servicio">
-              <i class="fas fa-video icono-servicio"></i><span class="nombre-servicio">{% trans 'Audiovisuales' %}</span>
-            </a>
-          </p>
-          <p>
-            <a href="#" class="enlace-servicio">
-              <i class="fas fa-camera icono-servicio"></i><span class="nombre-servicio">{% trans 'Fotografía' %}</span>
-            </a>
-          </p>
-            <!-- Botón de correo electrónico -->
-   
-        </div>
-        
-      </div>
-      <p class="parrafo-correo">
-        {% trans 'Enviar correo :' %}
-        <a href="mailto:rectangulo.salgado@gmail.com" class="boton-correo">rectangulo.salgado@gmail.com</a>
-      </p>
-    </div> 
-    <!-- Fin del contenedor de servicios -->
-
-  
-  </div>
-</section> 
-
-
-.custom-navbar {
-    background-color: rgba(244, 11, 11, 0.952);
-    border-bottom: 1px solid rgb(240, 8, 8);
-    height: 92px; /* Altura fija */
-    min-height: 92px; /* Altura mínima para garantizar consistencia */
+/* Aplicar estilos globales solo dentro de .container-contact */
+.container-contact * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+.container-contact {
+  background-color: #000000; /* Cambia este color al que prefieras */
+  margin-bottom: 40px;
+  max-width: 100%; /* Ancho máximo del contenedor */
+  margin: 0 auto; /* Centrado horizontal */
+  padding: 20px; /* Espacio interno */
+}
 
+.contenedor-flex {
+display: flex; /* Utiliza flexbox */
+justify-content: space-between; /* Distribuye los elementos uniformemente */
+}
 
+.contacto-formulario {
+flex: 1; /* Ocupa dos veces más espacio que servicios-contact */
+margin-right: 10px; /* Espacio entre los elementos */
+padding: 20px; /* Espacio interno */
+background-color: #000000; /* Color de fondo */
+box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+margin-bottom: 80px;
+}
 
-<div class="social-share">
-              <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank">
-                <i class="fab fa-facebook"></i>
-              </a>
-              <a href="https://x.com/intent/tweet?url={{ request.build_absolute_uri }}&text={{ post.title }}" target="_blank">
-                <i class="fa-brands fa-x-twitter"></i>
-              </a>
-              <a href="https://www.instagram.com/?url={{ request.build_absolute_uri }}" target="_blank">
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a href="https://wa.me/?text={{ request.build_absolute_uri }}" target="_blank">
-                <i class="fab fa-whatsapp"></i>
-              </a>
-            </div> 
+.servicios-contact {
+flex: 1; /* Ocupa menos espacio */
+padding: 20px; /* Espacio interno */
+background-color: #000000; /* Color de fondo */
+box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+.contenedor-flex {
+  flex-direction: column; /* Apila los elementos en columna */
+}
+
+.contacto-formulario, .servicios-contact {
+  margin-right: 0; /* Elimina el margen derecho */
+  margin-bottom: 20px; /* Añade un margen inferior para separar los elementos */
+}
+}
+
+/* Contacto Inicio */
+.container-form {
+    background-color: black;
+    color: rgb(255, 255, 255); /* Cambia el color del texto si es necesario */
+    padding: 20px; /* Ajusta el padding según sea necesario */
+    margin-top: 50px; /* Empuja al final de la página */
+    width: 100%;
+    
+}
