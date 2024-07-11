@@ -7,7 +7,10 @@
 
 {% block content %}
 <main class="container">
-  <h1 class="titulo-principal">{% trans 'Categorías' %}</h1>
+  <h1 class="titulo-principal">
+   {{ category.name }}
+  </h1>
+  
   <!-- Barra de navegación de categorías con estilos personalizados -->
   <nav class="category-nav-historias text-center mb-4">
     <a href="{% url 'historias' %}" class="link-historias{% if not category %} active{% endif %}">
@@ -18,10 +21,14 @@
         <a href="{% url 'category' cat.id %}" class="link-historias{% if category and category.id == cat.id %} active{% endif %}">
             {% trans cat.name %}
         </a>
-        {% if not forloop.last %}<span class="separator"> | </span>{% endif %}
+        {% if not forloop.last %}
+        <span class="separator"> | </span>
+        {% endif %}
     {% endfor %}
   </nav>
 </main>
+
+
 
 <main class="container-fluid"> 
  

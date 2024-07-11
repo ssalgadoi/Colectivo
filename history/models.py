@@ -5,6 +5,7 @@ from embed_video.fields import EmbedVideoField
 from parler.models import TranslatableModel, TranslatedFields
 from base.models import BaseModel
 from django.contrib.auth.models import User
+from django.utils.text import slugify
 
 class Category(TranslatableModel, BaseModel):
     translations = TranslatedFields(

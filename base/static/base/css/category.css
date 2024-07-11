@@ -131,6 +131,9 @@
 .category-nav-historias .separator {
     color: #999;
 }
+.sub-title{
+    font-size: 30;
+}
 
 
 @media (max-width: 1000px) {

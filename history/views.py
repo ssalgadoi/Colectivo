@@ -58,5 +58,11 @@ def audiovisual(request):
 
 def video_detail(request, post_id):
     post = get_object_or_404(Post, id=post_id)
-    return render(request, "history/video.html", {'post': post})
-
+    
+    # Verifica si la categoría del post es 'El Valle de los Negros'
+    if post.category.id == 9:
+        template_name = "history/valle.html"
+    else:
+        template_name = "history/video.html"
+    
+    return render(request, template_name, {'post': post})
