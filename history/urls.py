@@ -6,5 +6,6 @@ urlpatterns = [
     path('historia/<int:post_id>/', views.historia, name='historia'),
     path('category/<int:category_id>/', views.category, name='category'),
     path('videos/', views.audiovisual, name='videos'),
-    path('video/<int:post_id>/', views.video_detail, name='video_detail'),
+    # path('video/<int:post_id>/', views.video_detail, name='video_detail'),
+    # path('valle/<int:category_id>/', views.valle, name='valle'),
 ]

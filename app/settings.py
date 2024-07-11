@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'image',
     'project',
     'articles',
+    'valle',
 
 ]
 

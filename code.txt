@@ -55,3 +55,28 @@ box-sizing: border-box; /* Incluye padding y borde en el ancho total */
     width: 100%;
     
 }
+
+
+
+
+{% comment %} <p class="autor">
+          <span class="category-list">
+            {% for category in post.category.all %}
+              <a href="{% url 'category' category.id %}" class="link">{{ category.name }}</a>{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+          </span>
+        </p> {% endcomment %}
+        <div class="social-share">
+          <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="https://x.com/intent/tweet?url={{ request.build_absolute_uri }}&text={{ post.title }}" target="_blank">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          <a href="https://www.instagram.com/?url={{ request.build_absolute_uri }}" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://wa.me/?text={{ request.build_absolute_uri }}" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div> 

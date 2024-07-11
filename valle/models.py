@@ -7,19 +7,7 @@ from base.models import BaseModel
 from django.contrib.auth.models import User
 
 
-class Category(TranslatableModel, BaseModel):
-    translations = TranslatedFields(
-        name = models.CharField(max_length=100, verbose_name="Nombre")
-    )
- 
 
-    class Meta:
-        verbose_name = "categoría"
-        verbose_name_plural = "categorías"
-        ordering = ['-created']
-
-    def __str__(self):
-        return self.safe_translation_getter('name', default='')
 
 class Post(TranslatableModel, BaseModel):
     translations = TranslatedFields(
@@ -31,13 +19,13 @@ class Post(TranslatableModel, BaseModel):
     published = models.DateTimeField(verbose_name="Fecha de publicación", default=now)
     image = models.ImageField(verbose_name="Imagen",  upload_to="blog")
     video = EmbedVideoField(verbose_name="Enlace del video", help_text="Enlace")
-    category = models.ManyToManyField(Category, verbose_name="Categorías", related_name="get_history_posts")
-    author = models.ForeignKey(User, verbose_name="Autor", on_delete=models.CASCADE, related_name="history_posts")
-   
+    
+    author = models.ForeignKey(User, verbose_name="Autor", on_delete=models.CASCADE, related_name="valle_posts")
+
 
     class Meta:
-        verbose_name = "Historia"
-        verbose_name_plural = "Historias"
+        verbose_name = "Valle"
+        verbose_name_plural = "Valles"
         ordering = ['-published']
 
     def __str__(self):

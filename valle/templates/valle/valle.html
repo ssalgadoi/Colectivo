@@ -1,0 +1,68 @@
+{% extends 'base/base.html' %}
+{% load embed_video_tags %}
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}{% trans 'El Valle de los Negros' %}{% endblock %}
+
+{% block content %}
+<main class="container">
+    <h1 class="titulo-principal">
+        {% trans 'El Valle de los Negros' %}
+    </h1>
+    
+    <!-- Barra de navegación de categorías con estilos personalizados -->
+    <nav class="category-nav-historias text-center mb-4">
+        <a href="{% url 'historias' %}" class="link-historias{% if request.path == '/historias/' %} active{% endif %}">
+            {% trans 'Todas' %}
+        </a>
+        {% for cat in categories %}
+            <span class="separator"> | </span>
+            {% if forloop.counter == 2 %}  <!-- Asegura que el enlace del Valle de los Negros aparezca tercero -->
+                <a href="{% url 'valle' %}" class="link-historias{% if request.path == '/valle/' %} active{% endif %}">
+                    {% trans 'El valle de los Negros' %}
+                </a>
+                <span class="separator"> | </span>
+            {% endif %}
+            <a href="{% url 'category' cat.id %}" class="link-historias{% if category and category.id == cat.id %} active{% endif %}">
+                {% trans cat.name %}
+            </a>
+        {% endfor %}
+    </nav>
+</main>
+
+
+  <main>
+
+    {% for post in posts %}
+    <div class="video-valle">
+        {% video post.video as my_video %}
+            <iframe src="{{ my_video.url }}" frameborder="0" allowfullscreen></iframe>
+        {% endvideo %}
+    </div>
+    {% endfor %}
+  </main>
+  
+  <main class="container-fluid">
+  
+    {% for post in posts %}
+    <div class="container-project">
+      <div class="project-image">
+        <div class="project-img">
+          <a href="{{ post.url_link }}" target="_blank" rel="noopener noreferrer">
+            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="project-image"> <!-- Imagen con clase project-image -->
+          </a>
+        </div>
+      </div>
+      <div class="project-content">
+        <h2 class="project-title">{{ post.title }}</h2>
+        <p class="historia-contenido">{{ post.content }}</p>
+        
+      </div>
+    </div>
+    {% endfor %}
+  </main>
+  
+  
+{% endblock %}

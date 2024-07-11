@@ -15,10 +15,12 @@ urlpatterns = [
     path('historias/', include('history.urls')),
     # Path de image
     path('fotografias/', include('image.urls')),
-      # Path de project
+    # Path de project
     path('proyectos/', include('project.urls')),
-     # Path de articles
+   # Path de articles
     path('articulos/', include('articles.urls')),
+    # Path de valle
+    path('valle/', include('valle.urls')),
   
   
     # Path de Idioma
