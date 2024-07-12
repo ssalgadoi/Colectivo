@@ -83,12 +83,12 @@
                 <a class="nav-link nav-menu-link {% if request.path == '/nosotros/' %}nav-menu-link_active{% endif %}" href="{% url 'nosotros' %}"">{% trans 'Nosotros' %}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link nav-menu-link {% if request.resolver_match.url_name == 'historias' or request.resolver_match.url_name == 'historia' or request.resolver_match.url_name == 'category' %}nav-menu-link_active{% endif %}" 
+                <a class="nav-link nav-menu-link {% if request.resolver_match.url_name == 'historias' or request.resolver_match.url_name == 'historia' or request.resolver_match.url_name == 'category' or request.resolver_match.url_name == 'valle'%}nav-menu-link_active{% endif %}" 
                 href="{% url 'historias' %}">{% trans 'Historias' %}
                 </a>
               </li>
               <li class="nav-item dropdown">
-                  <a class="nav-link nav-menu-link {% if '/fotografias/' in request.path or '/videos/' in request.path %}nav-menu-link_active{% endif %}" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  <a class="nav-link nav-menu-link {% if request.resolver_match.url_name == 'fotografias' or request.resolver_match.url_name == 'videos' or request.resolver_match.url_name == 'videos' %}nav-menu-link_active{% endif %}" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
                       {% trans 'Colaboraciones' %}
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">

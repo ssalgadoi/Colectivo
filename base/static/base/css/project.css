@@ -4,12 +4,12 @@
 .container-project {
     width: 100%;
     max-width: 100%;
-    margin: 0 auto 3rem; 
+    margin: 0 auto 9rem; 
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 3rem; 
-   
+    margin-top: 50px;
 }  
 
 

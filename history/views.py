@@ -11,6 +11,7 @@ def history(request):
     categories = Category.objects.all()
     return render(request, "history/historias.html", {'posts': posts, 'categories': categories})
 
+
 def historia(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     return render(request, "history/historia.html", {'post': post})
