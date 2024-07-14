@@ -9,9 +9,9 @@ from django.contrib.auth.models import User
 
 class Category(TranslatableModel, BaseModel):
     translations = TranslatedFields(
-        name = models.CharField(max_length=100, verbose_name="Nombre")
+        name=models.CharField(max_length=100, verbose_name="Nombre")
     )
- 
+    image = models.ImageField(verbose_name="Imagen",  upload_to="blog")
 
     class Meta:
         verbose_name = "categoría"

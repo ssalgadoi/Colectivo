@@ -19,7 +19,6 @@ class Post(TranslatableModel, BaseModel):
     published = models.DateTimeField(verbose_name="Fecha de publicación", default=now)
     image = models.ImageField(verbose_name="Imagen",  upload_to="blog")
     video = EmbedVideoField(verbose_name="Enlace del video", help_text="Enlace")
-    
     author = models.ForeignKey(User, verbose_name="Autor", on_delete=models.CASCADE, related_name="valle_posts")
 
 

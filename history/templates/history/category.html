@@ -6,31 +6,60 @@
 {% block title %}{% trans 'Categorías' %}{% endblock %}
 
 {% block content %}
-<main class="container">
-  <h1 class="titulo-categoria">
-    {% trans 'Historias' %} / <span class="subtitle-categoria">{{ category.name }}</span>
-  </h1>
-  
-  <!-- Barra de navegación de categorías con estilos personalizados -->
- <!-- Barra de navegación de categorías con estilos personalizados -->
- <nav class="category-nav-historias text-center mb-4">
-  <a href="{% url 'historias' %}" class="link-historias{% if request.path == '/historias/' %} active{% endif %}">
-      {% trans 'Todas' %}
-  </a>
+
+<main>
   {% for cat in categories %}
-      <span class="separator"> | </span>
-      {% if forloop.counter == 2 %}  <!-- Asegura que el enlace del Valle de los Negros aparezca tercero -->
-          <a href="{% url 'valle' %}" class="link-historias{% if request.path == '/valle/' %} active{% endif %}">
-              {% trans 'El Valle de los Negros' %}
-          </a>
-          <span class="separator"> | </span>
+    {% if category and category.id == cat.id %}
+      {% if cat.image %}
+        <div class="panoramic-image">
+          <div class="category-title-container">
+            <h1 class="titulo-categoria">
+              {% trans 'Historias' %} / <span class="subtitle-categoria">{{ cat.name }}</span>
+            </h1>
+          </div>
+          <img src="{{ cat.image.url }}" alt="{{ cat.name }} Image">
+        </div>
       {% endif %}
-      <a href="{% url 'category' cat.id %}" class="link-historias{% if category and category.id == cat.id %} active{% endif %}">
-          {% trans cat.name %}
-      </a>
+    {% endif %}
   {% endfor %}
-</nav>
 </main>
+<main class="container-fluid">
+
+  <!-- Barra de navegación de categorías con estilos personalizados -->
+  <nav class="category-nav-historias text-center mb-4">
+  
+    {% for cat in categories %}
+      {% if forloop.counter == 3 %}
+        <!-- Asegura que el enlace del Valle de los Negros aparezca tercero -->
+        <a href="{% url 'valle' %}" class="link-historias{% if request.path == '/valle/' %} active{% endif %}">
+          {% trans 'El Valle de los Negros' %}
+        </a>
+        <span class="separator"> | </span>
+      {% endif %}
+      
+      {% if category and category.id == cat.id %}
+        <a href="{% url 'category' cat.id %}" class="link-historias active">
+          {% trans cat.name %}
+        </a>
+      {% else %}
+        <a href="{% url 'category' cat.id %}" class="link-historias">
+          {% trans cat.name %}
+        </a>
+      {% endif %}
+      
+      {% if not forloop.last %}
+        <span class="separator"> | </span>
+      {% endif %}
+    {% endfor %}
+    
+  </nav>
+</main>
+
+
+
+
+
+
 
 <main class="container-fluid"> 
   <div class="grid-projects">

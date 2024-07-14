@@ -10,7 +10,7 @@ class CategoryAdmin(TranslatableAdmin):
     search_fields = ['translations__name']
     ordering = ['-created']
     fieldsets = [
-        (None, {'fields': ['name']}),
+        (None, {'fields': ['name', 'image']}),
     ]
 
 # Admin para History

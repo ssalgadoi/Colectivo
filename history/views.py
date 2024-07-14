@@ -6,24 +6,19 @@ from django.utils.translation import get_language
 
 
 
-def history(request):
-    posts = Post.objects.all()
-    categories = Category.objects.all()
-    return render(request, "history/historias.html", {'posts': posts, 'categories': categories})
-
 
 def historia(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     return render(request, "history/historia.html", {'post': post})
 
 
+
+
 def category(request, category_id):
     categories = Category.objects.all()
     category = get_object_or_404(Category, id=category_id)
-    posts = category.get_history_posts.all()  # Accede a los posts a través de la relación definida en el modelo Post
+    posts = category.get_history_posts.all()  # Asegúrate de tener este método definido en tu modelo Category
     return render(request, "history/category.html", {'category': category, 'categories': categories, 'posts': posts})
-
-
 
 # Page Video
 

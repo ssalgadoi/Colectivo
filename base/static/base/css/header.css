@@ -193,10 +193,10 @@
 /* .texto h1 {
     text-decoration: underline;
 } */
-.autor {
+/* .autor {
     text-align: center;
-    margin-bottom: 20px; /* Centrar el contenido */
-}
+    margin-bottom: 20px; 
+} */
 
 /* Estilos adicionales para el contenedor del video en diferentes tamaños de pantalla */
 @media (max-width: 1200px) {

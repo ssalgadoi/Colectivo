@@ -54,7 +54,7 @@
     {% endfor %}
   </div>
   <div class="project-button-container">
-      <a class="project-button" href="{% url 'historias' %}">{% trans 'Ir a proyectos' %}</a>
+      <a class="project-button" href="{% url 'category' 14  %}">{% trans 'Ir a proyectos' %}</a>
   </div>
 </section>
 
@@ -128,6 +128,14 @@
 
   
   </div>
+  <p class="autor">
+    {% load pages_extras %}
+    {% get_page_list as page_list %}
+    {% for page in page_list %}
+    <a href="{% url 'page' page.id page.title|slugify  %}" class="link nav-a">{% trans page.title  %}</a>
+    {% if not forloop.last %}·{% endif %}  
+    {% endfor %}
+  </p>
  
   <p class="año">Colectivo Rectángulo <span>&copy</span> <span id="current-year"></span></p>
 </section>

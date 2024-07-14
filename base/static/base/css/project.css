@@ -161,6 +161,7 @@
 @media (max-width: 768px) {
     .grid-projects {
         grid-template-columns: 1fr; /* Cambia a una sola columna en dispositivos móviles */
-        margin-top: 250px;
+        margin-top: 10px;
+        padding: 10px;
     }
 }

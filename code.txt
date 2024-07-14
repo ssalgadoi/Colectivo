@@ -1,82 +1,226 @@
-/* Aplicar estilos globales solo dentro de .container-contact */
-.container-contact * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Categorias */
+.post-list {
+    display: flex;
+    min-height: 10vh;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 15px 40px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+} 
+.category-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+    max-width: 1000px;
+    margin: auto;
+}
+.post {
+    box-shadow: 0 1px 6px 1px rgb(0, 0, 0, .1);
+    overflow: hidden; 
+    transition: .2s;
+}
+.post:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 1px 14px 2px rgb(0,0,0.15);
 }
 
-.container-contact {
-  background-color: #000000; /* Cambia este color al que prefieras */
-  margin-bottom: 40px;
-  max-width: 100%; /* Ancho máximo del contenedor */
-  margin: 0 auto; /* Centrado horizontal */
-  padding: 20px; /* Espacio interno */
-}
-
-.contenedor-flex {
-display: flex; /* Utiliza flexbox */
-justify-content: space-between; /* Distribuye los elementos uniformemente */
-}
-
-.contacto-formulario {
-flex: 1; /* Ocupa dos veces más espacio que servicios-contact */
-margin-right: 10px; /* Espacio entre los elementos */
-padding: 20px; /* Espacio interno */
-background-color: #000000; /* Color de fondo */
-box-sizing: border-box; /* Incluye padding y borde en el ancho total */
-margin-bottom: 80px;
-}
-
-.servicios-contact {
-flex: 1; /* Ocupa menos espacio */
-padding: 20px; /* Espacio interno */
-background-color: #000000; /* Color de fondo */
-box-sizing: border-box; /* Incluye padding y borde en el ancho total */
-}
-
-/* Media query para pantallas pequeñas */
-@media (max-width: 768px) {
-.contenedor-flex {
-  flex-direction: column; /* Apila los elementos en columna */
-}
-
-.contacto-formulario, .servicios-contact {
-  margin-right: 0; /* Elimina el margen derecho */
-  margin-bottom: 20px; /* Añade un margen inferior para separar los elementos */
-}
-}
-
-/* Contacto Inicio */
-.container-form {
-    background-color: black;
-    color: rgb(255, 255, 255); /* Cambia el color del texto si es necesario */
-    padding: 20px; /* Ajusta el padding según sea necesario */
-    margin-top: 50px; /* Empuja al final de la página */
+.post-img {
     width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    transition: .2s;
+}
+
+.post-header {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    overflow: hidden;  
+}
+.post:hover {
+    transform: scale(1.1);
+}
+
+.post-body {
+    padding: 1px;
+    text-align: center;
+}
+.post-body p{
+    display: inline-block;
+    color: rgb(0, 0, 0);
+    margin-top: 10px;
+    line-height: 1.5 ;
+    text-align: center;
+}
+.post-body h1 {
+    margin-bottom: 15px;
+    text-decoration: none;
+}
+.post-body .post-link {
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    width: 50%;
+    margin: auto;
+    border-radius: 20px;
+    box-shadow: 1px 2px 6px 1px rgb(0, 0, 0, .1);
+    border: 2px solid black;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.post-body .post-link:hover {
+    background: rgb(195, 195, 195);
+    box-shadow: 1px 2px 6px 1px rgb(0, 0, 0, .2);
+
+} 
+
+@media (max-width: 1145px) {
+    .category-content {
+        grid-template-columns: repeat(1, 1fr); 
+        grid-gap: 40px;
+        max-width: 800px;
+        margin: auto;
+    }
     
 }
 
+/* Estilos CSS simplificados barra de navegacion Historias */
+.category-nav-historias {
+    position: relative; /* Cambiado a relativo para fluir con el documento */
+    text-align: center; /* Centrado horizontal */
+    z-index: 1000;
+    background-color: #fff;
+    padding: 10px;
+    width: 100%;
+    margin: 0 auto; /* Centrado horizontal */
+    margin-top: 10px; 
+}
+
+.category-nav-historias .link-historias {
+    text-decoration: none;
+    color: #000000;
+    padding: 8px 12px;
+    margin: 0 5px;
+    font-weight: 200;
+    position: relative;
+    display: inline-block; /* Asegura que el ancho del enlace se ajuste al contenido */
+}
+
+.category-nav-historias .link-historias::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #000000;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.category-nav-historias .link-historias:hover::after,
+.category-nav-historias .link-historias.active::after {
+    width: 100%; /* Cambia el ancho a 100% del elemento padre (el enlace) */
+}
+
+.category-nav-historias .separator {
+    color: #999;
+}
+
+.sub-title {
+    font-size: 30px; /* Asegúrate de especificar la unidad (px) para el tamaño de fuente */
+}
+
+.subtitle-categoria {
+    font-size: 30px;
+}
+
+.panoramic-image {
+    overflow: hidden;
+    margin-bottom: 20px; /* Espacio inferior */
+}
+
+.panoramic-image img {
+    width: 100%;
+    height: 300px;
+    display: block;
+    object-fit: cover;
+    margin: 0; /* Asegura que no haya márgenes */
+    padding: 0; /* Asegura que no haya relleno */
+}
+
+.titulo-categoria {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; /* Color del texto del título */
+    font-size: 24px; /* Tamaño del texto del título */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+    padding: 10px;
+    border-radius: 5px;
+
+}
+@media (max-width: 1000px) {
+    .category-nav-historias {
+        padding: 6px;
+        top: 2px; /* Ajustar la distancia vertical deseada */
+        display: flex; /* Usar flexbox */
+        flex-direction: column; /* Cambiar a disposición en columna */
+        align-items: center; /* Centrar horizontalmente los elementos */
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    .titulo-categoria {
+        position: absolute; /* Establece posición absoluta para el título */
+        left: 50%; /* Centra horizontalmente */
+        transform: translateX(-50%); /* Centra horizontalmente */
+        color: white; /* Color del texto del título */
+        background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+        padding: 10px; /* Espacio interno */
+        border-radius: 5px; /* Bordes redondeados */
+    }
 
 
+    .category-nav-historias .link-historias {
+        padding: 5px 10px; /* Ajustar el padding según sea necesario para dispositivos más pequeños */
+        margin: 5px; /* Ajustar el margen según sea necesario para dispositivos más pequeños */
+        display: inline-block; /* Asegura que el ancho del enlace se ajuste al contenido */
+    }
 
-{% comment %} <p class="autor">
-          <span class="category-list">
-            {% for category in post.category.all %}
-              <a href="{% url 'category' category.id %}" class="link">{{ category.name }}</a>{% if not forloop.last %}, {% endif %}
-            {% endfor %}
-          </span>
-        </p> {% endcomment %}
-        <div class="social-share">
-          <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank">
-            <i class="fab fa-facebook"></i>
-          </a>
-          <a href="https://x.com/intent/tweet?url={{ request.build_absolute_uri }}&text={{ post.title }}" target="_blank">
-            <i class="fa-brands fa-x-twitter"></i>
-          </a>
-          <a href="https://www.instagram.com/?url={{ request.build_absolute_uri }}" target="_blank">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="https://wa.me/?text={{ request.build_absolute_uri }}" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-          </a>
-        </div> 
+    /* Ajusta el tamaño de fuente y margen inferior para los subtítulos */
+    .sub-title,
+    .subtitle-categoria,
+    .titulo-categoria {
+        font-size: 15px; /* Asegura que el tamaño de fuente sea legible en dispositivos más pequeños */
+        margin-bottom: 10px; /* Ajusta el margen inferior según sea necesario para dispositivos más pequeños */
+        text-align: center; /* Centra el texto horizontalmente */
+    }
+    
+
+    .separator {
+        display: none; /* Oculta el separador en pantallas pequeñas */
+    }
+
+    .panoramic-image {
+        overflow: hidden;
+        margin-bottom: 20px; /* Espacio inferior */
+        position: relative; /* Añade posición relativa para el contenedor */
+    }
+    
+    .panoramic-image img {
+        width: 100%;
+        height: 200px;
+        display: block;
+        object-fit: cover;
+        margin: 0; /* Asegura que no haya márgenes */
+        padding: 0; /* Asegura que no haya relleno */
+    }
+}
+
+  

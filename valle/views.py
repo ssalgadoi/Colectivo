@@ -4,9 +4,6 @@ from history.models import Category
 
 
 
-
-
-
 def valle(request):
     posts = Post.objects.all()
     categories = Category.objects.all()
