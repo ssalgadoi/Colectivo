@@ -45,73 +45,80 @@
    
 </head>
 <body>
-    <header class="">
-      <div class="top-bar">
-        <div class="container-fluid d-flex justify-content-end align-items-center">
-          {% if LINK_INSTAGRAM %}      
-          <a href="{{LINK_INSTAGRAM}}" class="instagram-icon" target="_blank">
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-          {% endif %}
-          <form id="language-form" action="{% url 'set_language' %}" method="post">
+  <header class="">
+    <div class="top-bar">
+      <div class="container-fluid d-flex justify-content-end align-items-center">
+        {% if LINK_INSTAGRAM %}      
+        <a href="{{LINK_INSTAGRAM}}" class="instagram-icon" target="_blank">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        {% endif %}
+        <form id="language-form" action="{% url 'set_language' %}" method="post">
           {% csrf_token %}
           <input type="hidden" name="next" value="{{ request.path }}">
-            {% get_current_language as LANGUAGE_CODE %}
+          {% get_current_language as LANGUAGE_CODE %}
           <button type="submit" name="language" value="{% if LANGUAGE_CODE == 'en' %}es{% else %}en{% endif %}" class="language-toggle">
             {% if LANGUAGE_CODE == 'en' %}Español{% else %}English{% endif %}
           </button>
-          </form>
-        </div>
+        </form>
       </div>
-      <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-          <!-- Logo y Título -->
-          <a href="{% url 'index' %}" class="logo d-flex align-items-center navbar-brand">
-            <img class="image" src="{% static 'base/img/logo.png' %}" alt="Logo">
-            <h1 class="titulo titulo-colectivo">Colectivo<span class="titulo-rectangulo">Rectángulo</span></h1>
+    </div>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <!-- Logo y Título -->
+        <a href="{% url 'index' %}" class="logo d-flex align-items-center navbar-brand">
+          <img class="image" src="{% static 'base/img/logo.png' %}" alt="Logo">
+          <h1 class="titulo titulo-colectivo">Colectivo<span class="titulo-rectangulo">Rectángulo</span></h1>
         </a>
         <!-- Botón de navegación colapsable para móviles -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
         </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav navbar-nav-header">
-              <li class="nav-item">
-                <a class="nav-link nav-menu-link {% if request.path == '/' %}nav-menu-link_active{% endif %}" href="{% url 'index' %}">{% trans 'Inicio' %}</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link nav-menu-link {% if request.path == '/nosotros/' %}nav-menu-link_active{% endif %}" href="{% url 'nosotros' %}"">{% trans 'Nosotros' %}</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link nav-menu-link {% if request.resolver_match.url_name == 'category' %}nav-menu-link_active{% endif %}" href="{% url 'category' 14 %}">
-                    {% trans 'Historias' %}
-                </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav navbar-nav-header">
+            <li class="nav-item">
+              <a class="nav-link nav-menu-link {% if request.path == '/' %}nav-menu-link_active{% endif %}" href="{% url 'index' %}">{% trans 'Inicio' %}</a>
             </li>
-            
-              <li class="nav-item dropdown">
-                  <a class="nav-link nav-menu-link {% if request.resolver_match.url_name == 'fotografias' or request.resolver_match.url_name == 'videos' or request.resolver_match.url_name == 'videos' %}nav-menu-link_active{% endif %}" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                      {% trans 'Colaboraciones' %}
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item nav-menu-link" href="{% url 'fotografias' %}">{% trans 'Fotografía' %}</a>
-                      <a class="dropdown-item nav-menu-link" href="{% url 'videos' %}">{% trans 'Videos' %}</a>
-
-                  </div>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link nav-menu-link {% if request.path == '/proyectos/' %}nav-menu-link_active{% endif %}" href="{% url 'proyectos' %}">{% trans 'Proyectos' %}</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link nav-menu-link {% if request.path == '/articulos/' %}nav-menu-link_active{% endif %}" href="{% url 'articulos' %}">{% trans 'Noticias' %}</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link nav-menu-link {% if request.path == '/contacto/' %}nav-menu-link_active{% endif %}" href="{% url 'index' %}#contacto""">{% trans 'Contacto' %}</a>
-              </li>
+            <li class="nav-item">
+              <a class="nav-link nav-menu-link {% if request.path == '/nosotros/' %}nav-menu-link_active{% endif %}" href="{% url 'nosotros' %}">{% trans 'Nosotros' %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-menu-link {% if request.resolver_match.url_name == 'category' or request.resolver_match.url_name == 'historia' %}nav-menu-link_active{% endif %}" href="{% url 'category' 14 %}">
+                {% trans 'Historias' %}
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link nav-menu-link 
+                  {% if request.resolver_match.url_name == 'fotografias' or 
+                        request.resolver_match.url_name == 'videos' or 
+                        request.resolver_match.url_name == 'fotografia' or 
+                        current_category == 'Más' or 
+                        current_category == 'More' %}
+                      nav-menu-link_active
+               " 
+                  href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  {% trans 'Colaboraciones' %}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item nav-menu-link" href="{% url 'fotografias' %}">{% trans 'Fotografía' %}</a>
+                <a class="dropdown-item nav-menu-link" href="{% url 'videos' %}">{% trans 'Videos' %}</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-menu-link {% if request.path == '/proyectos/' %}nav-menu-link_active{% endif %}" href="{% url 'proyectos' %}">{% trans 'Proyectos' %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-menu-link {% if request.path == '/articulos/' %}nav-menu-link_active{% endif %}" href="{% url 'articulos' %}">{% trans 'Noticias' %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-menu-link {% if request.path == '/contacto/' %}nav-menu-link_active{% endif %}" href="{% url 'index' %}#contacto">{% trans 'Contacto' %}</a>
+            </li>
           </ul>
-          </div>
         </div>
-      </nav>
-    </header>
+      </div>
+    </nav>
+  </header>
+  
     {% block content %} {% endblock %}
     
 
@@ -149,11 +156,11 @@
           {% endif %}
           </li>
         </ul>
-        <p class="autor">
+        <p class="derechos">
           {% load pages_extras %}
           {% get_page_list as page_list %}
           {% for page in page_list %}
-          <a href="{% url 'page' page.id page.title|slugify  %}" class="link nav-a">{% trans page.title  %}</a>
+          <a href="{% url 'page' page.id page.title|slugify  %}" class="nav-a">{% trans page.title  %}</a>
           {% if not forloop.last %}·{% endif %}  
           {% endfor %}
         </p> 

@@ -124,19 +124,15 @@
       </div>
   </div>
     <!-- Fin del contenedor de servicios -->
-
-
-  
   </div>
-  <p class="autor">
+  <p class="derechos">
     {% load pages_extras %}
     {% get_page_list as page_list %}
     {% for page in page_list %}
-    <a href="{% url 'page' page.id page.title|slugify  %}" class="link nav-a">{% trans page.title  %}</a>
+    <a href="{% url 'page' page.id page.title|slugify  %}" class="nav-a">{% trans page.title  %}</a>
     {% if not forloop.last %}·{% endif %}  
     {% endfor %}
-  </p>
- 
+  </p> 
   <p class="año">Colectivo Rectángulo <span>&copy</span> <span id="current-year"></span></p>
 </section>
 <script> 

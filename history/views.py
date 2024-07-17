@@ -18,7 +18,12 @@ def category(request, category_id):
     categories = Category.objects.all()
     category = get_object_or_404(Category, id=category_id)
     posts = category.get_history_posts.all()  # Asegúrate de tener este método definido en tu modelo Category
-    return render(request, "history/category.html", {'category': category, 'categories': categories, 'posts': posts})
+    return render(request, "history/category.html", {
+        'category': category,
+        'categories': categories,
+        'posts': posts,
+        'current_category': category.name  # Pasar el nombre de la categoría actual al contexto
+    })
 
 # Page Video
 
@@ -50,7 +55,13 @@ def audiovisual(request):
         posts = []
 
     categories = Category.objects.all()
-    return render(request, "history/videos.html", {'posts': posts, 'categories': categories})
+    current_category_name = mas_category.name if mas_category else more_category.name if more_category else None
+
+    return render(request, "history/videos.html", {
+        'posts': posts,
+        'categories': categories,
+        'current_category': current_category_name  # Pasar el nombre de la categoría actual al contexto
+    })
 
 
 

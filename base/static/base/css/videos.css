@@ -95,7 +95,6 @@
   margin-bottom: 5px;
   text-align: center;
 } 
-
 .autor {
     text-align: center;
     color: #343434; 
@@ -105,19 +104,54 @@
 }
 
 
-
 /* Subrayado al pasar el ratón sobre el enlace */
 .autor:hover {
     text-decoration: underline; 
     color: rgb(51, 51, 51);
 } 
 
+
+.derechos {
+    display: flex;
+    gap: 5px; /* Espacio entre los enlaces */
+    justify-content: center; /* Centra los enlaces horizontalmente */
+    align-items: center; /* Centra los enlaces verticalmente si hay múltiples líneas */
+    text-align: center; /* Centra el texto dentro del contenedor */
+}
+
+.derechos .nav-a {
+    color: white; /* Color blanco para los enlaces */
+    text-decoration: none; /* Elimina la línea debajo del enlace */
+    padding: 5px; /* Espacio alrededor del texto del enlace */
+    transition: all 0.3s ease; /* Transición suave para los efectos hover */
+}
+
+.derechos .nav-a:hover {
+    color: gray; /* Color gris al pasar el cursor */
+   
+}
+
+
 .historia-contenido {
+    .historia-contenido {
     -webkit-hyphens: auto;
     -ms-hyphens: auto;
     hyphens: auto;
     word-wrap: break-word;
+    overflow-wrap: break-word;
+     white-space: normal;
+    }
 
+}
+.project-text {
+    .historia-contenido {
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
+    }
 }
 
 h1.titulo-principal {
@@ -133,7 +167,6 @@ h1.titulo-principal {
 h1 {
     text-align: center;
   }
-
 
 
 

@@ -7,7 +7,17 @@
     width: 150px; /* Ancho fijo */
     height: 115px; /* Alto fijo */
     min-width: 10px; /* Ancho mínimo para garantizar consistencia */
-    
+    background-color: #ffffff; /* Cambia el color de fondo al blanco */
+    border: 1px solid #dddddd; /* Añade un borde de color gris claro */
+}
+
+/* Opcional: estilos para los elementos dentro del menú */
+.dropdown-menu .dropdown-item {
+    color: #333333; /* Color del texto */
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #f8f9fa; /* Color de fondo al pasar el cursor */
 }
 
 /* Estilos para el logo */
@@ -174,64 +184,6 @@
     transform: scale(1.1); /* Efecto de escala en el hover */
 }
 
-/* Historia */
-.contenedor h1 {
-    margin-bottom: 40px; /* Ajusta este valor según sea necesario */
-}
-
-/* .titulo-post {
-    font-weight: 700;
-} */
-.texto p {
-    font-size: 16px;
-    margin-bottom: 20px;
-    
-}
-.texto {
-    margin-left: 10px;
-}
-/* .texto h1 {
-    text-decoration: underline;
-} */
-/* .autor {
-    text-align: center;
-    margin-bottom: 20px; 
-} */
-
-/* Estilos adicionales para el contenedor del video en diferentes tamaños de pantalla */
-@media (max-width: 1200px) {
-    .col-xl-10 {
-      padding: 0 15px; /* Ajusta el padding para pantallas más pequeñas */
-    }
-}
-
-@media (max-width: 768px) {
-    .col-xl-6 {
-      padding: 0 15px; /* Ajusta el padding para pantallas pequeñas */
-    }
-}
-/* Color del texto del enlace */
-/* Quitar subrayado predeterminado */
-/* Espacio entre enlaces */
-.autor a {
-    color: #595959; 
-    text-decoration: none; 
-    margin: 0 5px;
-    font-weight: normal; 
-} 
-/* .texto span {
-    font-weight: bold;
-} */
-/* Subrayado al pasar el ratón sobre el enlace */
-/* .autor a:hover {
-    text-decoration: underline; 
-    color: black;
-} */
-/* .title-stories {
-    margin-bottom: 50px;
-} */
-
-
 
 .language-toggle {
     padding: 5px 10px;
@@ -253,8 +205,6 @@
 
 
 
-
-
 .language-toggle:hover {
     background-color: #525252; /* Color de fondo al pasar el mouse */
     border-color: #525252; /* Cambia el color del borde al pasar el mouse */
@@ -262,4 +212,25 @@
 
 .language-toggle:active {
     background-color: #e9ecef; /* Color de fondo al hacer clic */
+}
+
+
+/* styles.css */
+.contact-button {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.contact-button .btn {
+    background-color: #000000;
+    color: white;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.contact-button .btn:hover {
+    background-color: #272727;
 }

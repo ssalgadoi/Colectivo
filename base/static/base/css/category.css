@@ -215,7 +215,7 @@
     
     .panoramic-image img {
         width: 100%;
-        height: 200px;
+        height: 250px;
         display: block;
         object-fit: cover;
         margin: 0; /* Asegura que no haya márgenes */

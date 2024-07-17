@@ -9,26 +9,29 @@
 
 {% block content %}
 
-<div class="container">
-    <div class="about-heading-content ">
-    <div class="row">
-        <div class="col-xl-9 col-lg-10 mx-auto">
-        <div class="bg-faded rounded p-5 forced">
-            <h2 class="section-heading mb-4">
-            <span class="section-heading-lower">{{ page.title }}</span>
-            </h2>
-            <div class="section-content">
-            {{ page.content|safe }}
-            {% if user.is_authenticated %}
-                <p>
-                    <a href="{% url 'admin:pages_page_change' page.id %}">{% trans 'Editar' %}</a>
-                </p>
-            {% endif %}
+<main class="container">
+    <div class="about-heading-content">
+        <div class="row">
+            <div class="col-xl-9 col-lg-10 mx-auto">
+                <div class="bg-faded rounded p-5 forced">
+                    <h2 class="section-heading mb-4">
+                        <span class="section-heading-lower">{{ page.title }}</span>
+                    </h2>
+                    <div class="section-content">
+                        {{ page.content|safe }}
+                        {% if user.is_authenticated %}
+                            <p>
+                                <a href="{% url 'admin:pages_page_change' page.id %}">{% trans 'Editar' %}</a>
+                            </p>
+                        {% endif %}
+                    </div>
+                    <div class="contact-button">
+                        <a href="{% url 'index' %}#contacto""" class="btn">{% trans 'Contacto' %}</a>
+                    </div>
+                </div>
             </div>
         </div>
-        </div>
     </div>
-    </div>
-</div>
+</main>
 
 {% endblock %}
