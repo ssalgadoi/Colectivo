@@ -19,8 +19,7 @@ urlpatterns = [
     path('proyectos/', include('project.urls')),
    # Path de articles
     path('articulos/', include('articles.urls')),
-    # Path de valle
-    path('valle/', include('valle.urls')),
+   
   
   
     # Path de Idioma

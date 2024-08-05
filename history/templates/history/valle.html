@@ -1,0 +1,71 @@
+{% extends 'base/base.html' %}
+{% load embed_video_tags %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans 'El Valle de los Negros' %}{% endblock %}
+
+{% block content %}
+
+<main>
+  {% for cat in categories %}
+  {% if category and category.id == cat.id %}
+    {% if cat.image %}
+      <div class="panoramic-image">
+        <div class="category-title-container">
+          <h1 class="titulo-categoria">
+            {% trans 'Historias' %} / <span class="subtitle-categoria">{{ cat.name }}</span>
+          </h1>
+        </div>
+        <img src="{{ cat.image.url }}" alt="{{ cat.name }} Image">
+      </div>
+    {% endif %}
+  {% endif %}
+{% endfor %}
+</main>
+
+<main class="container-fluid">
+  <!-- Barra de navegación de categorías con estilos personalizados -->
+  <nav class="category-nav-historias text-center mb-4">
+    {% for cat in categories %}
+      <a href="{% url 'category' cat.id %}" class="link-historias{% if category and category.id == cat.id %} active{% endif %}">
+        {% trans cat.name %}
+      </a>
+
+      {% if not forloop.last %}
+        <span class="separator"> | </span>
+      {% endif %}
+    {% endfor %}
+  </nav>
+</main>
+
+
+<main>
+  {% for post in posts %}
+    <div class="video-valle">
+      {% video post.video as my_video %}
+        <iframe src="{{ my_video.url }}" frameborder="0" allowfullscreen></iframe>
+      {% endvideo %}
+    </div>
+  {% endfor %}
+</main>
+
+<main class="container-fluid">
+  {% for post in posts %}
+    <div class="container-project">
+      <div class="project-image">
+        <div class="project-img">
+          <a href="{{ post.url_link }}" target="_blank" rel="noopener noreferrer">
+            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="project-image">
+          </a>
+        </div>
+      </div>
+      <div class="project-content">
+        <h2 class="project-title">{{ post.title }}</h2>
+        <p class="historia-contenido">{{ post.content }}</p>
+      </div>
+    </div>
+  {% endfor %}
+</main>
+
+{% endblock %}

@@ -16,6 +16,24 @@
     height: 100%;
 }
 
+.category-list {
+    text-align: center; /* Centra el texto dentro del <p> */
+    margin: 1rem 0;
+}
+
+.category-links {
+    display: inline; /* Asegura que los enlaces estén en una línea */
+}
+
+.category-link {
+    color: #ff0000; /* Color del enlace */
+    text-decoration: none; /* Eliminar subrayado */
+    margin: 0 0.5rem; /* Espacio horizontal entre enlaces */
+}
+
+.category-link:hover {
+    text-decoration: underline; /* Subrayar el enlace al pasar el mouse */
+}
 
 
 

@@ -23,13 +23,16 @@
       <h1 >{{ post.title }}</h1>
       <p class="historia-contenido">{{ post.content }}</p>
       <p class="post-date">{{ post.data }}</p>
-      <p class="autor">
-        <span class="category-list">
-          {% for category in post.category.all %}
-            <a href="{% url 'category' category.id %}" class="autor">{{ category.name }}</a>{% if not forloop.last %}, {% endif %}
-          {% endfor %}
+      <p class="category-list">
+        <span class="category-links">
+            {% for category in post.category.all %}
+                <a href="{% url 'category' category.id %}" class="category-link">
+                    {{ category.name }}
+                </a>
+                {% if not forloop.last %}, {% endif %}
+            {% endfor %}
         </span>
-      </p>
+    </p>
       <div class="social-share">
         <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank">
           <i class="fab fa-facebook"></i>

@@ -6,4 +6,5 @@ urlpatterns = [
     path('historia/<int:post_id>/', views.historia, name='historia'),
     path('category/<int:category_id>/', views.category, name='category'),
     path('videos/', views.audiovisual, name='videos'),
+    
 ]

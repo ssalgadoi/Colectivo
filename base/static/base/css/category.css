@@ -224,3 +224,81 @@
 }
 
   
+@media (max-width: 2500px) {
+    /* Estilos CSS simplificados para la barra de navegación Historias */
+    .category-nav-historias {
+        position: relative;
+        text-align: center;
+        z-index: 1000;
+        background-color: #fff;
+        padding: 10px;
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+
+    .category-nav-historias .link-historias {
+        text-decoration: none;
+        color: #000000;
+        padding: 8px 12px;
+        margin: 0 5px;
+        font-weight: 200;
+        position: relative;
+        display: inline-block;
+    }
+
+    .category-nav-historias .link-historias::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background-color: #000000;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transition: width 0.3s ease;
+    }
+
+    .category-nav-historias .link-historias:hover::after,
+    .category-nav-historias .link-historias.active::after {
+        width: 100%;
+    }
+
+    .category-nav-historias .separator {
+        color: #999;
+    }
+
+    .sub-title {
+        font-size: 30px;
+    }
+
+    .subtitle-categoria {
+        font-size: 30px;
+    }
+
+    .panoramic-image {
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+
+    .panoramic-image img {
+        width: 100%;
+        height: 500px;
+        display: block;
+        object-fit: cover;
+        margin: 0;
+        padding: 0;
+    }
+
+    .titulo-categoria {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 24px;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 5px;
+    }
+}

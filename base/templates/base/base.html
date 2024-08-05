@@ -83,27 +83,19 @@
               <a class="nav-link nav-menu-link {% if request.path == '/nosotros/' %}nav-menu-link_active{% endif %}" href="{% url 'nosotros' %}">{% trans 'Nosotros' %}</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-menu-link {% if request.resolver_match.url_name == 'category' or request.resolver_match.url_name == 'historia' %}nav-menu-link_active{% endif %}" href="{% url 'category' 14 %}">
+              <a class="nav-link nav-menu-link {% if request.resolver_match.url_name == 'category' or request.resolver_match.url_name == 'historia' %}nav-menu-link_active{% endif %}" href="{% url 'category' 22 %}">
                 {% trans 'Historias' %}
               </a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link nav-menu-link 
-                  {% if request.resolver_match.url_name == 'fotografias' or 
-                        request.resolver_match.url_name == 'videos' or 
-                        request.resolver_match.url_name == 'fotografia' or 
-                        current_category == 'Más' or 
-                        current_category == 'More' %}
-                      nav-menu-link_active
-               " 
-                  href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link nav-menu-link {% if request.resolver_match.url_name == 'fotografias' or request.resolver_match.url_name == 'videos' or request.resolver_match.url_name == 'fotografia' or current_category == 'Más' or current_category == 'More' %}nav-menu-link_active{% endif %}" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
                   {% trans 'Colaboraciones' %}
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item nav-menu-link" href="{% url 'fotografias' %}">{% trans 'Fotografía' %}</a>
-                <a class="dropdown-item nav-menu-link" href="{% url 'videos' %}">{% trans 'Videos' %}</a>
+                  <a class="dropdown-item nav-menu-link {% if current_category == 'fotografias' %}nav-menu-link_active{% endif %}" href="{% url 'fotografias' %}">{% trans 'Fotografía' %}</a>
+                  <a class="dropdown-item nav-menu-link {% if current_category == 'videos' %}nav-menu-link_active{% endif %}" href="{% url 'videos' %}">{% trans 'Videos' %}</a>
               </div>
-            </li>
+          </li>
             <li class="nav-item">
               <a class="nav-link nav-menu-link {% if request.path == '/proyectos/' %}nav-menu-link_active{% endif %}" href="{% url 'proyectos' %}">{% trans 'Proyectos' %}</a>
             </li>
